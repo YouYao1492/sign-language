@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>手橋 SignBridge｜手語與聲音互譯</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>手橋</h1>
+    <p>鏡頭抓取你的手，虛擬角色同步比出來；聽見的話，也能變成手語。</p>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="t1">
+      <h2 id="t1">手語 → 文字</h2>
+      <div class="stage">
+        <div class="box">
+          <video id="video" playsinline muted></video>
+          <canvas id="overlay"></canvas>
+          <span class="tag">鏡頭畫面</span>
+        </div>
+        <div class="box">
+          <canvas id="avatar" width="480" height="360"></canvas>
+          <span class="tag">虛擬角色</span>
+        </div>
+        <div class="box">
+          <canvas id="handView" width="960" height="720"></canvas>
+          <span class="tag">手部特寫（可拖曳旋轉）</span>
+        </div>
+      </div>
+      <div class="row">
+        <button id="camBtn">開啟鏡頭</button>
+        <span id="status" role="status">尚未開啟</span>
+      </div>
+      <div class="row handctl">
+        <label>手部放大 <input type="range" id="handZoom" min="0.6" max="1.6" step="0.05" value="1"></label>
+        <label class="inline"><input type="checkbox" id="handLabels"> 標示手指名稱</label>
+        <button id="viewReset" class="ghost">重設手部視角</button>
+      </div>
+      <div class="expr" id="bodyStatus" aria-live="off">上半身：—</div>
+      <div class="expr" id="expr" aria-live="off">表情：—</div>
+      <div class="emotion" aria-label="目前情緒">
+        <div class="emo-main"><span id="emoIcon" aria-hidden="true">😐</span><div><small>目前情緒（自動辨識）</small><strong id="emoName">—</strong><small id="emoSub"></small></div></div>
+        <div id="emotionBars"></div>
+      </div>
+      <div class="row">
+        <button id="emoCalib" class="ghost">校準我的表情（約 20 秒）</button>
+        <span id="emoCalibStatus" role="status"></span>
+      </div>
+      <label class="check"><input type="checkbox" id="tagEmo"> 在辨識出的文字後面標註情緒，例如「好(開心)」</label>
+      <p class="hint small">情緒是依臉部肌肉動作推估，只代表「臉上的表情」，不一定是真實感受。手語本身也會用眉毛和嘴型表達語法（例如挑眉表示疑問），不一定代表情緒。</p>
+      <div class="transcript" id="transcript" aria-live="polite">辨識結果會顯示在這裡。</div>
+      <button id="clearBtn" class="ghost">清除文字</button>
+      <div class="row signctl">
+        <label>辨識敏感度 <input type="range" id="signSens" min="1" max="10" step="1" value="5"></label>
+        <span class="expr" id="signInfo">手語辨識：—</span>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="t0">
+      <h2 id="t0">我的虛擬角色</h2>
+      <p class="hint">開啟鏡頭後，只要正對鏡頭、放鬆表情約一秒，系統會自動辨識你的臉型、五官位置、膚色、髮色、髮型和衣服顏色，產生專屬角色，並記住你放鬆時的表情。之後角色會即時跟著你的表情動，情緒也會自動判斷。</p>
+      <label class="check"><input type="checkbox" id="autoLook"> 自動辨識我的外表（開啟鏡頭時自動進行）</label>
+      <div class="row">
+        <button id="buildBtn" class="ghost">重新辨識我的外表</button>
+        <span id="buildStatus" role="status"></span>
+      </div>
+      <div class="row pickers">
+        <label hidden>膚色 <input type="color" id="colSkin"></label>
+        <label>髮色 <input type="color" id="colHair"></label>
+        <label>衣服 <input type="color" id="colShirt"></label>
+        <label>眼睛 <input type="color" id="colEye"></label>
+        <label>眼鏡 <select id="glasses"><option value="none">無</option><option value="round">圓框</option><option value="square">方框</option></select></label>
+        <label>鬍子 <input type="range" id="beardAmt" min="0" max="100" step="5" value="0"></label>
+        <label>髮型
+          <select id="hairStyle"><option value="short">短髮</option><option value="long">長髮</option></select>
+        </label>
+        <label hidden>瀏海
+          <select id="bangs"><option value="part">中分</option><option value="full">全瀏海</option><option value="sideL">左旁分</option><option value="sideR">右旁分</option><option value="back">露額</option></select>
+        </label>
+        <label hidden>髮長 <input type="range" id="hairLen" min="0" max="100"></label>
+        <label hidden>捲度 <input type="range" id="hairCurl" min="0" max="100"></label>
+        <label hidden><input type="checkbox" id="hairBun"> 丸子頭</label>
+        <button id="resetProfile" class="ghost">還原預設</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="t2">
+      <h2 id="t2">聲音 → 手語</h2>
+      <div class="stage">
+        <div class="box fixed textbox">
+          <textarea id="speechText" placeholder="按下「開始收音」說話，或直接輸入文字，例如：你好 一 二 三 愛"></textarea>
+          <span class="tag">聽到的話／輸入文字</span>
+        </div>
+        <div class="box fixed">
+          <canvas id="signStage" width="480" height="360"></canvas>
+          <span class="tag" id="stageWord">虛擬人物：準備好了</span>
+        </div>
+      </div>
+      <div class="row">
+        <button id="micBtn">開始收音</button>
+        <label class="inline">語言
+          <select id="speechLang"><option value="zh-TW">國語（台灣）</option><option value="zh-CN">國語（普通話）</option><option value="yue-Hant-HK">粵語（香港）</option><option value="en-US">English</option></select>
+        </label>
+        <span class="meter" title="麥克風音量" aria-hidden="true"><i id="micLevel"></i></span>
+        <span id="micStatus" role="status">尚未開始</span>
+      </div>
+      <div class="row">
+        <button id="playBtn">用虛擬人物比給我看</button>
+        <button id="speechClear" class="ghost">清除文字</button>
+      </div>
+      <div class="expr" id="heardRaw" aria-live="off"></div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="t3">
+      <h2 id="t3">手語詞典：錄下你的手語</h2>
+      <p class="hint">先在上方開啟鏡頭，坐到肩膀、雙手和臉都入鏡的位置。輸入詞後按「開始錄製」，倒數 3 秒開始，最長 6 秒。錄好的詞有兩個用途：「聲音 → 手語」會用你的真實動作播放；上方的「手語 → 文字」也會拿它來比對你比出的手語。</p>
+      <label class="check"><input type="checkbox" id="recAdd"> 這個詞已經錄過時，新增為另一個樣本（同一個詞多錄幾次，辨識會更準）</label>
+      <div class="row">
+        <input id="recWord" placeholder="要錄的詞，例如：謝謝" maxlength="8">
+        <button id="recBtn">開始錄製</button>
+        <span id="recStatus" role="status"></span>
+      </div>
+      <ul class="clips" id="clipList"></ul>
+      <div class="row">
+          <button id="exportBtn" class="ghost">匯出詞典</button>
+          <button id="importBtn" class="ghost">匯入詞典</button>
+          <input type="file" id="importFile" accept="application/json" hidden>
+          <button id="uploadBtn" class="ghost">上傳最近錄製影片到 /api/recognize</button>
+          <span id="uploadStatus" style="margin-left:8px"></span>
+      </div>
+    </section>
+  </main>
+
+  <p id="fatal" role="alert" style="display:none;margin:0;padding:12px 24px;background:#b3261e;color:#fff"></p>
+  <script>
+    const fatal = (m) => { const f = document.getElementById("fatal"); f.textContent = m; f.style.display = "block"; };
+    window.addEventListener("error", (e) => fatal("程式錯誤：" + e.message));
+    window.addEventListener("unhandledrejection", (e) => fatal("程式錯誤：" + (e.reason && e.reason.message || e.reason)));
+  </script>
+  <script type="module" src="app.js" onerror="fatal('app.js 載入失敗：請確認 app.js 與 index.html 在同一個資料夾，並且網路能連到 cdn.jsdelivr.net')"></script>
+</body>
+</html>
