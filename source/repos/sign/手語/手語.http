@@ -1,0 +1,6 @@
+@手語_HostAddress = http://localhost:5216
+
+GET {{手語_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
