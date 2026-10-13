@@ -1,6 +1,7 @@
 # Web Framework
 fastapi==0.141.1
 uvicorn==0.53.0
+python-multipart==0.0.32
 
 # Database
 SQLAlchemy==2.0.54
@@ -15,3 +16,4 @@ pydantic-settings==2.15.0
 black==26.5.1
 pytest==9.1.1
 httpx==0.28.1
+
