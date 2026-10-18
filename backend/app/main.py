@@ -1,14 +1,19 @@
 from fastapi import FastAPI
-from app.api import recognize
+from app.routers import recognize
 from app.core.responses import register_exception_handlers
 
 
+
+from app.routers.auth import router as auth_router
+from app.routers.sessions import router as sessions_router
 
 app = FastAPI(
     title="Sign Language",
     version="0.1.0",
 )
 
+app.include_router(auth_router)
+app.include_router(sessions_router)
 # 放在 app = FastAPI(...) 之後
 register_exception_handlers(app)
 app.include_router(recognize.router)
@@ -18,6 +23,8 @@ app.include_router(recognize.router)
 def health_check():
     return {
         "success": True,
-        "data": {"status": "ok"},
+        "data": {
+            "status": "ok",
+        },
         "error": None,
     }
