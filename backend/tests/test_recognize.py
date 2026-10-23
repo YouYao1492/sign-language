@@ -120,67 +120,16 @@ def test_success_returns_text_and_saves_message(client, db_session, auth_headers
     assert len(messages) == 1
     m = messages[0]
     assert (m.session_id, m.text, m.sender_type, m.message_type) == (
-<<<<<<< HEAD
-        "session-001", ai_client.MOCK_TEXT, "deaf", "sign_recognition",
-=======
         "session-001",
         ai_client.MOCK_TEXT,
         "deaf",
         "sign_recognition",
->>>>>>> backend-integration
     )
     assert m.message_id is not None and m.created_at is not None
 
 
 def test_no_token_401(client):
     resp = post(client, headers={})
-<<<<<<< HEAD
-    assert resp.status_code == 401 and error_code(resp) == "UNAUTHORIZED"
-
-
-@pytest.mark.parametrize("missing", ["session_id", "scenario_id", "language"])
-def test_missing_form_field_400(client, missing):
-    resp = post(client, **{missing: ""})
-    assert resp.status_code == 400 and error_code(resp) == "INVALID_REQUEST"
-
-
-def test_missing_video_400(client):
-    resp = post(client, video=None)
-    assert resp.status_code == 400 and error_code(resp) == "INVALID_REQUEST"
-
-
-def test_empty_video_400(client):
-    resp = post(client, video=("sign.webm", b"", "video/webm"))
-    assert resp.status_code == 400 and error_code(resp) == "INVALID_REQUEST"
-
-
-def test_session_not_found_404(client):
-    resp = post(client, session_id="nope")
-    assert resp.status_code == 404 and error_code(resp) == "SESSION_NOT_FOUND"
-
-
-def test_session_of_other_user_403(client):
-    resp = post(client, session_id="session-other")
-    assert resp.status_code == 403 and error_code(resp) == "FORBIDDEN"
-
-
-def test_completed_session_409(client):
-    resp = post(client, session_id="session-completed")
-    assert resp.status_code == 409 and error_code(resp) == "SESSION_COMPLETED"
-
-
-def test_scenario_not_found_404(client):
-    resp = post(client, scenario_id="unknown")
-    assert resp.status_code == 404 and error_code(resp) == "SCENARIO_NOT_FOUND"
-
-
-def test_ai_error_is_documented_error_and_no_message_saved(client, db_session, monkeypatch):
-    async def fake_recognize(**kwargs):
-        raise AppError(500, "SERVER_ERROR", "AI recognition timeout")
-
-    monkeypatch.setattr(ai_client, "recognize", fake_recognize)
-    resp = post(client)
-=======
     assert resp.status_code == 401
     assert resp.json()["detail"] == "Invalid or expired token"
 
@@ -229,7 +178,6 @@ def test_ai_error_is_documented_error_and_no_message_saved(
 
     monkeypatch.setattr(ai_client, "recognize", fake_recognize)
     resp = post(client, headers=auth_headers)
->>>>>>> backend-integration
     assert resp.status_code == 500 and error_code(resp) == "SERVER_ERROR"
     assert resp.json()["error"]["message"] == "AI recognition timeout"
     assert db_session.scalars(select(Message)).all() == []
