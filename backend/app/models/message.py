@@ -20,27 +20,17 @@ MESSAGE_TYPE_SIGN_RECOGNITION = "sign_recognition"
 class Message(Base):
     __tablename__ = "messages"
 
-<<<<<<< HEAD
-    message_id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
-=======
     message_id: Mapped[uuid.UUID] = mapped_column(
         Uuid,
         primary_key=True,
         default=uuid.uuid4,
     )
->>>>>>> backend-integration
 
     # 【待替換】session 組員的 sessions 表做好後，這裡要改成
     # ForeignKey("sessions.<主鍵欄位>")，型別也要跟他們的主鍵一致。
     # 目前文件範例是 "session-001" 這種字串，所以先用 String。
     session_id: Mapped[str] = mapped_column(String(64), index=True)
 
-<<<<<<< HEAD
-    sender_type: Mapped[str] = mapped_column(String(20))
-    message_type: Mapped[str] = mapped_column(String(30))
-    text: Mapped[str] = mapped_column(Text)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
-=======
     sender_type: Mapped[str] = mapped_column(String(20), nullable=False)
     message_type: Mapped[str] = mapped_column(String(30), nullable=False)
     text: Mapped[str] = mapped_column(Text, nullable=False)
@@ -49,4 +39,3 @@ class Message(Base):
         server_default=func.now(),
         nullable=False,
     )
->>>>>>> backend-integration
