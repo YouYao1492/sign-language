@@ -211,10 +211,10 @@ async function handleLogin(event) {
 
     if (response.ok) {
       localStorage.setItem("userToken", data.token);
-      localStorage.setItem("userInfo", JSON.stringify(data.user));
+      localStorage.setItem("userInfo", JSON.stringify(data.data));
 
-      alert(`✅ 登入成功！歡迎回來，${data.user.name}`);
-      updateUserUI(data.user);
+      alert(`✅ 登入成功！歡迎回來，${data.data.name}`);
+      updateUserUI(data.data);
       toggleLoginModal(false);
     } else {
       errorDiv.innerText = data.message || "登入失敗！";
@@ -244,14 +244,14 @@ async function handleRegister(event) {
     const response = await fetch(`${API_BASE_URL}/api/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      // body: JSON.stringify({ name, email, password })
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ name, email, password }),
     });
 
     const data = await response.json();
+    console.log(data);
 
     if (response.ok) {
-      alert(`🎉 ${data.message}`);
+      alert("🎉 註冊成功！請使用新帳號登入。");
       document.getElementById("login_email").value = email;
       document.getElementById("login_password").value = password;
       switchAuthTab("login");
