@@ -9,6 +9,7 @@ class LoginRequest(BaseModel):
 
 class LoginData(BaseModel):
     user_id: int
+    name: str | None
     email: EmailStr
     role: str
     token: str
@@ -23,6 +24,7 @@ class LoginResponse(BaseModel):
 class RegisterRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
+    name: str = Field(min_length=1, max_length=100)
     email: EmailStr
     password: str = Field(min_length=8, max_length=128)
 

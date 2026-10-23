@@ -40,6 +40,7 @@ def test_login_success(client, db_session):
     assert data["error"] is None
 
     assert data["data"]["user_id"] == user.id
+    assert data["data"]["name"] == user.name
     assert data["data"]["email"] == user.email
     assert data["data"]["role"] == user.role
 

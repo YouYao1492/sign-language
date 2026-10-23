@@ -7,6 +7,7 @@ def test_register_success(client, db_session):
     response = client.post(
         "/api/register",
         json={
+            "name": "New User",
             "email": "newuser@example.com",
             "password": "secure-password-123",
         },
@@ -36,6 +37,7 @@ def test_register_success(client, db_session):
 
 def test_register_duplicate_email_returns_409(client, db_session):
     payload = {
+        "name": "Duplicate User",
         "email": "duplicate@example.com",
         "password": "secure-password-123",
     }
@@ -54,6 +56,7 @@ def test_register_email_is_case_insensitive(client):
     first = client.post(
         "/api/register",
         json={
+            "name": "Case Test User",
             "email": "Person@example.com",
             "password": "secure-password-123",
         },
@@ -62,6 +65,7 @@ def test_register_email_is_case_insensitive(client):
     second = client.post(
         "/api/register",
         json={
+            "name": "Another User",
             "email": "person@example.com",
             "password": "another-password-123",
         },
@@ -123,6 +127,7 @@ def test_register_does_not_store_plaintext_password(client, db_session):
     response = client.post(
         "/api/register",
         json={
+            "name": "Hash Test User",
             "email": "hash@example.com",
             "password": password,
         },

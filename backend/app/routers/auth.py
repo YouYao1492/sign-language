@@ -47,6 +47,7 @@ def register(
         )
 
     user = User(
+        name=request.name.strip(),
         email=normalized_email,
         password_hash=hash_password(request.password),
         role="deaf",
@@ -70,6 +71,7 @@ def register(
         success=True,
         data={
             "user_id": user.id,
+            "name": user.name,
             "email": user.email,
             "role": user.role,
         },
@@ -109,6 +111,7 @@ def login(
         success=True,
         data={
             "user_id": user.id,
+            "name": user.name,
             "email": user.email,
             "role": user.role,
             "token": token,
