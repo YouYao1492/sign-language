@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5fXsyhC+ndkwJzkLBwdG4tnv1MpAKf0wXPwFHecB0VQ=",
+  "Hash": "7NkyWOw64GPoWyZ12q5O9q83arog2xW8BJdMpJwsPds=",
   "Source": "SignBridge",
   "BasePath": "_content/SignBridge",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SignBridge\\wwwroot",
       "Source": "SignBridge",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SignBridge.styles.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SignBridge.styles.css",
       "SourceId": "SignBridge",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "SignBridge#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "wHU1q4/yy1vLg8SrH6z3pIIXxb/DWxKwmFUxZj6dxHU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SignBridge.styles.css"
+      "OriginalItemSpec": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SignBridge.styles.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignBridge.bundle.scp.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignBridge.bundle.scp.css",
       "SourceId": "SignBridge",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "SignBridge#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "wHU1q4/yy1vLg8SrH6z3pIIXxb/DWxKwmFUxZj6dxHU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignBridge.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignBridge.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\app.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\app.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "app#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -73,17 +73,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xbgijv3vxs",
-      "Integrity": "0x3ard748fKpG0ek9OZ3xg54sF8qGOH4IzCBbD/OuW0=",
+      "Fingerprint": "t4kyt1e3h1",
+      "Integrity": "bRsdpnEgvAZqw+xwqWhnjxZ6mnSu6DuS8gMLCkKv7+Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\css\\site.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\favicon.ico",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\index.html",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "index#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -136,17 +136,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "nq5lne6q4n",
-      "Integrity": "T1/ekL+NA3ouMNDaYiuvE+vP54kzSiPIFyc8rsKEx0I=",
+      "Fingerprint": "a2i7yyerv3",
+      "Integrity": "MiFlp9UF3RIGKt3HseaOZu4ARXmVkf4/KKXq95dmfrA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\js\\site.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -248,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -269,10 +269,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -290,10 +290,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -311,10 +311,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -332,10 +332,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -353,10 +353,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -395,10 +395,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -437,10 +437,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -458,10 +458,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -479,10 +479,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -500,10 +500,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -521,10 +521,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -542,10 +542,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -563,10 +563,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -584,10 +584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -605,10 +605,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -626,10 +626,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -647,10 +647,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -668,10 +668,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -689,10 +689,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -710,10 +710,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -752,10 +752,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -773,10 +773,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -794,10 +794,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -836,10 +836,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -857,10 +857,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -878,10 +878,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -899,10 +899,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -920,10 +920,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -941,10 +941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -962,10 +962,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -983,10 +983,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1004,10 +1004,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1025,10 +1025,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1046,10 +1046,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1067,10 +1067,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -1109,10 +1109,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1130,10 +1130,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1151,10 +1151,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1172,10 +1172,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1193,10 +1193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1214,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1235,10 +1235,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1256,10 +1256,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1277,10 +1277,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
       "AssetKind": "All",
@@ -1298,10 +1298,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1319,10 +1319,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1340,10 +1340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1361,10 +1361,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\style.css",
+      "Identity": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\style.css",
       "SourceId": "SignBridge",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\",
       "BasePath": "_content/SignBridge",
       "RelativePath": "style#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -1385,7 +1385,7 @@
   "Endpoints": [
     {
       "Route": "app.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\app.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\app.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1394,7 +1394,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "121726"
+          "Value": "122266"
         },
         {
           "Name": "Content-Type",
@@ -1402,11 +1402,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0x3ard748fKpG0ek9OZ3xg54sF8qGOH4IzCBbD/OuW0=\""
+          "Value": "\"bRsdpnEgvAZqw+xwqWhnjxZ6mnSu6DuS8gMLCkKv7+Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 Oct 2026 03:20:47 GMT"
+          "Value": "Mon, 26 Oct 2026 03:01:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1416,13 +1416,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0x3ard748fKpG0ek9OZ3xg54sF8qGOH4IzCBbD/OuW0="
+          "Value": "sha256-bRsdpnEgvAZqw+xwqWhnjxZ6mnSu6DuS8gMLCkKv7+Y="
         }
       ]
     },
     {
-      "Route": "app.xbgijv3vxs.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\app.js",
+      "Route": "app.t4kyt1e3h1.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\app.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1431,7 +1431,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "121726"
+          "Value": "122266"
         },
         {
           "Name": "Content-Type",
@@ -1439,11 +1439,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0x3ard748fKpG0ek9OZ3xg54sF8qGOH4IzCBbD/OuW0=\""
+          "Value": "\"bRsdpnEgvAZqw+xwqWhnjxZ6mnSu6DuS8gMLCkKv7+Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 Oct 2026 03:20:47 GMT"
+          "Value": "Mon, 26 Oct 2026 03:01:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1453,7 +1453,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xbgijv3vxs"
+          "Value": "t4kyt1e3h1"
         },
         {
           "Name": "label",
@@ -1461,13 +1461,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0x3ard748fKpG0ek9OZ3xg54sF8qGOH4IzCBbD/OuW0="
+          "Value": "sha256-bRsdpnEgvAZqw+xwqWhnjxZ6mnSu6DuS8gMLCkKv7+Y="
         }
       ]
     },
     {
       "Route": "css/site.c2tiyv64ts.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1512,7 +1512,7 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1549,7 +1549,7 @@
     },
     {
       "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1594,7 +1594,7 @@
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1630,8 +1630,8 @@
       ]
     },
     {
-      "Route": "index.html",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\index.html",
+      "Route": "index.a2i7yyerv3.html",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1640,7 +1640,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8416"
+          "Value": "9405"
         },
         {
           "Name": "Content-Type",
@@ -1648,48 +1648,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"T1/ekL+NA3ouMNDaYiuvE+vP54kzSiPIFyc8rsKEx0I=\""
+          "Value": "\"MiFlp9UF3RIGKt3HseaOZu4ARXmVkf4/KKXq95dmfrA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 Oct 2026 16:42:39 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-T1/ekL+NA3ouMNDaYiuvE+vP54kzSiPIFyc8rsKEx0I="
-        }
-      ]
-    },
-    {
-      "Route": "index.nq5lne6q4n.html",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8416"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"T1/ekL+NA3ouMNDaYiuvE+vP54kzSiPIFyc8rsKEx0I=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 12 Oct 2026 16:42:39 GMT"
+          "Value": "Mon, 26 Oct 2026 03:01:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1699,7 +1662,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nq5lne6q4n"
+          "Value": "a2i7yyerv3"
         },
         {
           "Name": "label",
@@ -1707,13 +1670,50 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-T1/ekL+NA3ouMNDaYiuvE+vP54kzSiPIFyc8rsKEx0I="
+          "Value": "sha256-MiFlp9UF3RIGKt3HseaOZu4ARXmVkf4/KKXq95dmfrA="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9405"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MiFlp9UF3RIGKt3HseaOZu4ARXmVkf4/KKXq95dmfrA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 Oct 2026 03:01:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MiFlp9UF3RIGKt3HseaOZu4ARXmVkf4/KKXq95dmfrA="
         }
       ]
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1750,7 +1750,7 @@
     },
     {
       "Route": "js/site.xtxxf3hu2r.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1795,7 +1795,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1832,7 +1832,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.73kdqttayv.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1877,7 +1877,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1914,7 +1914,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.bpk8xqwxhs.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1959,7 +1959,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1996,7 +1996,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2041,7 +2041,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2078,7 +2078,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.mpyigms19s.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2123,7 +2123,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2160,7 +2160,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.4gxs3k148c.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2205,7 +2205,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2242,7 +2242,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.9b9oa1qrmt.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2287,7 +2287,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2324,7 +2324,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.fctod5rc9n.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2369,7 +2369,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2406,7 +2406,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.ve6x09088i.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2451,7 +2451,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.agp80tu62r.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2496,7 +2496,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2533,7 +2533,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2570,7 +2570,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.st1cbwfwo5.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2615,7 +2615,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2652,7 +2652,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.5vj65cig9w.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2697,7 +2697,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2734,7 +2734,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.unj9p35syc.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2779,7 +2779,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2816,7 +2816,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.2q4vfeazbq.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2861,7 +2861,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2898,7 +2898,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2935,7 +2935,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2972,7 +2972,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.o371a8zbv2.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3017,7 +3017,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.n1oizzvkh6.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3062,7 +3062,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.q2ku51ktnl.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3107,7 +3107,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.7na4sro3qu.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3152,7 +3152,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3189,7 +3189,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.jeal3x0ldm.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3234,7 +3234,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3271,7 +3271,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3308,7 +3308,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3345,7 +3345,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.okkk44j0xs.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3390,7 +3390,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.f8imaxxbri.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3435,7 +3435,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.0wve5yxp74.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3480,7 +3480,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3517,7 +3517,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.cwzlr5n8x4.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3562,7 +3562,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3599,7 +3599,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3636,7 +3636,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3673,7 +3673,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.wmug9u23qg.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3718,7 +3718,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.npxfuf8dg6.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3763,7 +3763,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3800,7 +3800,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.j75batdsum.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3845,7 +3845,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3882,7 +3882,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.16095smhkz.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3927,7 +3927,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3964,7 +3964,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4001,7 +4001,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.vy0bq9ydhf.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4046,7 +4046,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.b4skse8du6.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4091,7 +4091,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4128,7 +4128,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.ab1c3rmv7g.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4173,7 +4173,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4210,7 +4210,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4247,7 +4247,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.56d2bn4wt9.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4292,7 +4292,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4329,7 +4329,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.u3xrusw2ol.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4374,7 +4374,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.tey0rigmnh.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4419,7 +4419,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4456,7 +4456,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.kbynt5jhd9.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4501,7 +4501,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4538,7 +4538,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.l2av4jpuoj.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4583,7 +4583,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.25iw1kog22.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4628,7 +4628,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4665,7 +4665,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.c2nslu3uf3.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4710,7 +4710,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4747,7 +4747,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4784,7 +4784,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.2lgwfvgpvi.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4829,7 +4829,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4866,7 +4866,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.m39kt2b5c9.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4911,7 +4911,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4948,7 +4948,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4985,7 +4985,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.wsezl0heh6.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5030,7 +5030,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.um2aeqy4ik.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5075,7 +5075,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5112,7 +5112,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.6ukhryfubh.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5157,7 +5157,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5194,7 +5194,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5231,7 +5231,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5268,7 +5268,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.u33ctipx7g.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5313,7 +5313,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.zwph15dxgs.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5358,7 +5358,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.o4kw7cc6tf.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5403,7 +5403,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5440,7 +5440,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE.81b7ukuj9c",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5485,7 +5485,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.fwhahm2icz.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5530,7 +5530,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5567,7 +5567,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.5pze98is44.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5612,7 +5612,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.dd6z7egasc.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5657,7 +5657,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5694,7 +5694,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.map",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5731,7 +5731,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.mlv21k5csn.txt",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5776,7 +5776,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.txt",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5813,7 +5813,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.ay5nd8zt9x.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5858,7 +5858,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5895,7 +5895,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.9oaff4kq20.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5940,7 +5940,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5977,7 +5977,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6014,7 +6014,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.b7iojwaux1.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6059,7 +6059,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6096,7 +6096,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.pzqfkb6aqo.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6141,7 +6141,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.md",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6178,7 +6178,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.x0q3zqp4vz.md",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6223,7 +6223,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.47otxtyo56.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6268,7 +6268,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6305,7 +6305,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.4v8eqarkd7.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6350,7 +6350,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6387,7 +6387,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.356vix0kms.txt",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6432,7 +6432,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.txt",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6469,7 +6469,7 @@
     },
     {
       "Route": "SignBridge.8u82l7wt1h.bundle.scp.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignBridge.bundle.scp.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignBridge.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6514,7 +6514,7 @@
     },
     {
       "Route": "SignBridge.8u82l7wt1h.styles.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SignBridge.styles.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SignBridge.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6559,7 +6559,7 @@
     },
     {
       "Route": "SignBridge.bundle.scp.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignBridge.bundle.scp.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignBridge.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6596,7 +6596,7 @@
     },
     {
       "Route": "SignBridge.styles.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SignBridge.styles.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SignBridge.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6633,7 +6633,7 @@
     },
     {
       "Route": "style.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\style.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\style.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6654,7 +6654,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 Oct 2026 10:37:56 GMT"
+          "Value": "Mon, 26 Oct 2026 03:01:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6670,7 +6670,7 @@
     },
     {
       "Route": "style.jhc77ri3gh.css",
-      "AssetFile": "C:\\Users\\User\\Desktop\\專研網站\\SignBridge\\SignBridge\\wwwroot\\style.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\aimodel\\SignBridge\\SignBridge\\wwwroot\\style.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6691,7 +6691,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 Oct 2026 10:37:56 GMT"
+          "Value": "Mon, 26 Oct 2026 03:01:45 GMT"
         },
         {
           "Name": "Cache-Control",

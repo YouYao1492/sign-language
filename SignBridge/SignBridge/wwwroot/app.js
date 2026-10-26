@@ -1,267 +1,144 @@
 import { HandLandmarker, PoseLandmarker, FaceLandmarker, FilesetResolver }
-    from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs";
+  from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs";
 
 const $ = (id) => document.getElementById(id);
 const video = $("video"), overlay = $("overlay"), avatar = $("avatar");
 const octx = overlay.getContext("2d"), actx = avatar.getContext("2d");
-/* ---------- ===== 新增：MediaRecorder + upload 支援 ====== */
-let mediaRecorder = null;
-let recordedBlobs = null;
-let lastRecordedBlob = null;
-let lastRecordedUrl = null;
-
-// 替換成更 robust 的 startMediaRecorder / stopMediaRecorder
-function startMediaRecorder() {
-    if (!video) { console.warn("no video element"); return; }
-    if (!video.srcObject) {
-        console.warn("video.srcObject is empty - cannot start MediaRecorder");
-        if ($("uploadStatus")) $("uploadStatus").textContent = "無法啟動錄影：未取得 video stream";
-        return;
-    }
-
-    recordedBlobs = [];
-    lastRecordedBlob = null;
-
-    // 要嘗試的 mime list（由較常見到較少見）
-    const candidates = [
-        'video/webm;codecs=vp8,opus',
-        'video/webm;codecs=vp8',
-        'video/webm',
-        'video/mp4' // 多數瀏覽器不允許錄 mp4 via MediaRecorder，但嘗試一下
-    ];
-
-    let created = false;
-    for (const mime of candidates) {
-        try {
-            if (mime && MediaRecorder.isTypeSupported && !MediaRecorder.isTypeSupported(mime)) {
-                console.log("mime not supported:", mime);
-                continue;
-            }
-            try {
-                mediaRecorder = new MediaRecorder(video.srcObject, mime ? { mimeType: mime } : undefined);
-            } catch (e) {
-                // 某些實作傳字串會失敗，嘗試不帶 option
-                mediaRecorder = new MediaRecorder(video.srcObject);
-            }
-            console.log("MediaRecorder created with mime:", mime, "state:", mediaRecorder.state);
-            created = true;
-            break;
-        } catch (err) {
-            console.warn("MediaRecorder create failed for", mime, err);
-            mediaRecorder = null;
-        }
-    }
-
-    // 如果沒成功建立 mediaRecorder，嘗試以 canvas captureStream 作為 fallback
-    if (!created) {
-        try {
-            // overlay 或 avatar 任一 canvas 可用，選 overlay 先
-            const fallbackCanvas = overlay || avatar;
-            if (fallbackCanvas && fallbackCanvas.captureStream) {
-                const cs = fallbackCanvas.captureStream(25); // 25fps
-                mediaRecorder = new MediaRecorder(cs, undefined);
-                console.log("MediaRecorder created from canvas.captureStream fallback");
-                created = true;
-            }
-        } catch (e) {
-            console.warn("canvas.captureStream fallback failed", e);
-        }
-    }
-
-    if (!created || !mediaRecorder) {
-        console.error("Failed to create MediaRecorder on any candidate");
-        if ($("uploadStatus")) $("uploadStatus").textContent = "錄影不支援（瀏覽器或編碼不支援）";
-        return;
-    }
-
-    mediaRecorder.ondataavailable = (ev) => { if (ev.data && ev.data.size > 0) recordedBlobs.push(ev.data); };
-    mediaRecorder.onstop = () => {
-        if (recordedBlobs && recordedBlobs.length) {
-            lastRecordedBlob = new Blob(recordedBlobs, { type: recordedBlobs[0].type || 'video/webm' });
-            try { if (lastRecordedUrl) URL.revokeObjectURL(lastRecordedUrl); } catch { }
-            lastRecordedUrl = URL.createObjectURL(lastRecordedBlob);
-            console.log("recording complete, blob size:", lastRecordedBlob.size, "type:", lastRecordedBlob.type);
-            if ($("uploadStatus")) $("uploadStatus").textContent = `可上傳：影片 ${Math.round(lastRecordedBlob.size / 1024)} KB`;
-        } else {
-            console.warn("no data recorded (recordedBlobs empty)");
-            if ($("uploadStatus")) $("uploadStatus").textContent = "錄到的影片為空（可能 codec 不支援）";
-        }
-    };
-
-    try {
-        mediaRecorder.start();
-        console.log("mediaRecorder.start() state:", mediaRecorder.state);
-        if ($("uploadStatus")) $("uploadStatus").textContent = "正在錄影...";
-    } catch (e) {
-        console.error("mediaRecorder.start() failed:", e);
-        if ($("uploadStatus")) $("uploadStatus").textContent = "無法開始錄影：" + e.message;
-    }
-}
-
-function stopMediaRecorder() {
-    try {
-        if (mediaRecorder && mediaRecorder.state !== "inactive") {
-            mediaRecorder.stop();
-        }
-    } catch (e) { console.warn("stopMediaRecorder error", e); }
-    mediaRecorder = null;
-}
-
-async function uploadLastRecording() {
-    const stat = $("uploadStatus");
-    if (!lastRecordedBlob) { if (stat) stat.textContent = "沒有可上傳的影片：請先錄製一段影片"; return; }
-    if (stat) stat.textContent = "上傳中…";
-    try {
-        const fd = new FormData();
-        fd.append("video", lastRecordedBlob, "clip.webm");
-        fd.append("session_id", Math.random().toString(36).slice(2, 8));
-        fd.append("language", $("speechLang")?.value || "zh-TW");
-
-        const resp = await fetch('http://localhost:3000/api/recognize', {
-            method: 'POST',
-            body: form
-        });
-        if (!resp.ok) {
-            const text = await resp.text();
-            if (stat) stat.textContent = `上傳失敗：${resp.status} ${text}`;
-            return;
-        }
-        const j = await resp.json();
-        if (j.text) emitWord(String(j.text).replace(/^（mock）/, ""));
-        if (stat) stat.textContent = `上傳完成：${j.text || "(沒有文字)"}（confidence ${Math.round((j.confidence || 0) * 100)}%）`;
-    } catch (e) {
-        if (stat) stat.textContent = `上傳例外：${e.message}`;
-    }
-}
 
 /* ---------- 手語詞典：五指伸直程度 [拇指, 食指, 中指, 無名指, 小指] ---------- */
 const DICT = {
-    "你好": [1, 1, 1, 1, 1], "好": [1, 0, 0, 0, 0], "愛": [1, 1, 0, 0, 1],
-    "零": [0, 0, 0, 0, 0], "一": [0, 1, 0, 0, 0], "二": [0, 1, 1, 0, 0],
-    "三": [0, 1, 1, 1, 0], "四": [0, 1, 1, 1, 1], "五": [1, 1, 1, 1, 1],
+  "你好": [1,1,1,1,1], "好": [1,0,0,0,0], "愛": [1,1,0,0,1],
+  "零": [0,0,0,0,0], "一": [0,1,0,0,0], "二": [0,1,1,0,0],
+  "三": [0,1,1,1,0], "四": [0,1,1,1,1], "五": [1,1,1,1,1],
 };
 
 // 詞典詞語搭配的表情（手語的語意也在臉上）
 const EXPR = {
-    "你好": { mouthSmileLeft: .6, mouthSmileRight: .6 },
-    "好": { mouthSmileLeft: .5, mouthSmileRight: .5 },
-    "愛": { mouthSmileLeft: .9, mouthSmileRight: .9, browInnerUp: .2 },
+  "你好": { mouthSmileLeft: .6, mouthSmileRight: .6 },
+  "好": { mouthSmileLeft: .5, mouthSmileRight: .5 },
+  "愛": { mouthSmileLeft: .9, mouthSmileRight: .9, browInnerUp: .2 },
 };
 
-
-/* ---------- 個人設定與繪製相關（完整版） ---------- */
+/* ---------- 個人角色設定檔：由使用者的臉產生 ---------- */
 // FaceLandmarker 的臉部輪廓點（順時針一圈）
-const OVAL = [10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288, 397, 365, 379, 378, 400, 377, 152, 148, 176, 149, 150, 136, 172, 58, 132, 93, 234, 127, 162, 21, 54, 103, 67, 109];
+const OVAL = [10,338,297,332,284,251,389,356,454,323,361,288,397,365,379,378,400,377,152,148,176,149,150,136,172,58,132,93,234,127,162,21,54,103,67,109];
 const DEFAULT_PROFILE = {
-    oval: Array.from({ length: 36 }, (_, i) => [Math.cos(i / 36 * 2 * Math.PI), Math.sin(i / 36 * 2 * Math.PI)]),
-    eyeX: .38, eyeY: -.02, eyeW: .27, browY: -.3, browIn: .14, browOut: .62,
-    mouthY: .48, mouthHalf: .28, noseY: .14,
-    skin: "#F3B98B", hair: "#2B2118", shirt: "#2F5BEA", eye: "#5A3D2B", hairStyle: "short", base: {}, yawBase: 0, pitchBase: 0.55,
-    gain: {}, lip: null, brow: null, skinHi: null, skinLo: null, beard: 0, beardColor: "#3a2a22", glasses: "none",
-    eyeOpen: 0.78, browT: 0.085, lipFull: 1, noseW: 1,
-    hairLen: 1, bangs: "part", partSide: 1, hairVol: 1, hairCurl: 0, hairBun: false, hairConf: 1,
+  oval: Array.from({ length: 36 }, (_, i) => [Math.cos(i / 36 * 2 * Math.PI), Math.sin(i / 36 * 2 * Math.PI)]),
+  eyeX: .38, eyeY: -.02, eyeW: .27, browY: -.3, browIn: .14, browOut: .62,
+  mouthY: .48, mouthHalf: .28, noseY: .14,
+  skin: "#F3B98B", hair: "#2B2118", shirt: "#2F5BEA", eye: "#5A3D2B", hairStyle: "short", base: {}, yawBase: 0, pitchBase: 0.55,
+  gain: {}, lip: null, brow: null, skinHi: null, skinLo: null, beard: 0, beardColor: "#3a2a22", glasses: "none",
+  eyeOpen: 0.78, browT: 0.085, lipFull: 1, noseW: 1,
+  hairLen: 1, bangs: "part", partSide: 1, hairVol: 1, hairCurl: 0, hairBun: false, hairConf: 1,
 };
 /* 外觀固定規則：
    - 皮膚一律使用「一般人的膚色」，不再從鏡頭取樣（避免光線造成偏差）
    - 髮型只分「長髮」與「短髮」：頭髮垂到下巴以下（頸部、肩膀）算長髮，其餘算短髮 */
 const STD_SKIN = { skin: "#EDC6A1", skinHi: "#F6D8BC", skinLo: "#D2A583" };
+// 性別只用來決定預設髮型：男性 → 短髮；女性 → 中長髮（約及肩）。自動偵測可能不準，所以可以在選單手動指定
+const GENDER_KEY = "signbridge.genderMode", MID_LEN = 0.6;
+let genderMode = "auto";
+try { genderMode = localStorage.getItem(GENDER_KEY) || "auto"; } catch {}
+const genderOf = (p) => (genderMode === "male" || genderMode === "female") ? genderMode : (p.gender === "male" || p.gender === "female" ? p.gender : null);
 function normalizeProfile(p, detected) {
-    Object.assign(p, STD_SKIN);
-    const long = p.hairStyle === "long" && (!detected || (p.hairLen ?? 1) >= 0.3);   // 偵測到的鮑伯頭（及下巴）算短髮
-    p.hairStyle = long ? "long" : "short";
-    Object.assign(p, { hairLen: 1, bangs: "part", partSide: 1, hairVol: 1, hairCurl: 0, hairBun: false });
-    return p;
+  Object.assign(p, STD_SKIN);
+  const g = genderOf(p);
+  if (g === "female") { p.hairStyle = "long"; p.hairLen = MID_LEN; }
+  else if (g === "male") { p.hairStyle = "short"; p.hairLen = 1; }
+  else { p.hairStyle = p.hairStyle === "long" ? "long" : "short"; p.hairLen = p.hairStyle === "long" ? MID_LEN : 1; }   // 還不知道性別：沿用目前髮型
+  Object.assign(p, { bangs: "part", partSide: 1, hairVol: 1, hairCurl: 0, hairBun: false });
+  return p;
 }
 const PROFILE_KEY = "signbridge.profile.v1";
 let PROFILE = { ...DEFAULT_PROFILE };
-try { Object.assign(PROFILE, JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}")); } catch { }
+try { Object.assign(PROFILE, JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}")); } catch {}
 normalizeProfile(PROFILE, true);          // 舊版存下來的設定（膚色、無髮、瀏海等）一併整理成新規則
-const saveProfile = () => { try { localStorage.setItem(PROFILE_KEY, JSON.stringify(PROFILE)); } catch { } };
+const saveProfile = () => { try { localStorage.setItem(PROFILE_KEY, JSON.stringify(PROFILE)); } catch {} };
 
 function shade(hex, f) {      // 把顏色變暗（f<1）用來做描邊色
-    const n = parseInt(hex.slice(1), 16);
-    return "#" + [n >> 16, (n >> 8) & 255, n & 255]
-        .map(v => Math.max(0, Math.min(255, Math.round(v * f))).toString(16).padStart(2, "0")).join("");
+  const n = parseInt(hex.slice(1), 16);
+  return "#" + [n >> 16, (n >> 8) & 255, n & 255]
+    .map(v => Math.max(0, Math.min(255, Math.round(v * f))).toString(16).padStart(2, "0")).join("");
 }
 function skinShade(hex, f) {     // 皮膚專用明暗：暗部偏紅、亮部偏奶油色，比單純乘係數更像真皮膚
-    const n = parseInt(hex.slice(1), 16), c = [n >> 16, (n >> 8) & 255, n & 255], k = [Math.pow(f, 0.7), f, Math.pow(f, 1.3)];
-    return "#" + c.map((v, i) => Math.max(0, Math.min(255, Math.round(v * k[i]))).toString(16).padStart(2, "0")).join("");
+  const n = parseInt(hex.slice(1), 16), c = [n >> 16, (n >> 8) & 255, n & 255], k = [Math.pow(f, 0.7), f, Math.pow(f, 1.3)];
+  return "#" + c.map((v, i) => Math.max(0, Math.min(255, Math.round(v * k[i]))).toString(16).padStart(2, "0")).join("");
 }
 const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
 function mix(h1, h2, t) {           // 兩個顏色按比例混合
-    const a = parseInt(h1.slice(1), 16), b = parseInt(h2.slice(1), 16);
-    return "#" + [16, 8, 0].map(sh => Math.round(((a >> sh) & 255) * (1 - t) + ((b >> sh) & 255) * t).toString(16).padStart(2, "0")).join("");
+  const a = parseInt(h1.slice(1), 16), b = parseInt(h2.slice(1), 16);
+  return "#" + [16, 8, 0].map(sh => Math.round(((a >> sh) & 255) * (1 - t) + ((b >> sh) & 255) * t).toString(16).padStart(2, "0")).join("");
 }
 function ovalPath(ctx, pts, s, dy) {   // 用相鄰點的中點串成平滑封閉曲線
-    const P = pts.map(([x, y]) => [x * s, y * s + dy]), n = P.length;
-    const mid = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
-    ctx.beginPath();
-    const m0 = mid(P[n - 1], P[0]); ctx.moveTo(m0[0], m0[1]);
-    for (let i = 0; i < n; i++) {
-        const m = mid(P[i], P[(i + 1) % n]);
-        ctx.quadraticCurveTo(P[i][0], P[i][1], m[0], m[1]);
-    }
-    ctx.closePath();
+  const P = pts.map(([x, y]) => [x * s, y * s + dy]), n = P.length;
+  const mid = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+  ctx.beginPath();
+  const m0 = mid(P[n - 1], P[0]); ctx.moveTo(m0[0], m0[1]);
+  for (let i = 0; i < n; i++) {
+    const m = mid(P[i], P[(i + 1) % n]);
+    ctx.quadraticCurveTo(P[i][0], P[i][1], m[0], m[1]);
+  }
+  ctx.closePath();
 }
 
 /* ---------- 2D 虛擬角色：把 21 個關節點畫成卡通手 ---------- */
-const FINGERS = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16], [17, 18, 19, 20]];
-const PALM = [0, 1, 5, 9, 13, 17];
+const FINGERS = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16],[17,18,19,20]];
+const PALM = [0,1,5,9,13,17];
 
 const v3 = {
-    sub: (a, b) => ({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z }),
-    cross: (a, b) => ({ x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x }),
+  sub: (a, b) => ({ x: a.x - b.x, y: a.y - b.y, z: a.z - b.z }),
+  cross: (a, b) => ({ x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x }),
 };
 
 // 手心或手背朝向鏡頭？由「哪一隻手」加上食指到小指的方向判斷（用未鏡像的原始座標）
 function palmFacing(lm) {
-    if (!lm.handed) return false;
-    const cz = (lm[5].x - lm[0].x) * (lm[17].y - lm[0].y) - (lm[5].y - lm[0].y) * (lm[17].x - lm[0].x);
-    return (cz < 0) === (lm.handed === "Right");
+  if (!lm.handed) return false;
+  const cz = (lm[5].x - lm[0].x) * (lm[17].y - lm[0].y) - (lm[5].y - lm[0].y) * (lm[17].x - lm[0].x);
+  return (cz < 0) === (lm.handed === "Right");
 }
 
 // 手指：暗部底色 + 中間調 + 偏左上的高光，外圍帶柔和的環境陰影（手指之間的暗部）
 function shadedTube(ctx, a, b, w, skin) {
-    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
-    const nx = -dy / len, ny = dx / len, sg = (nx + ny) >= 0 ? -1 : 1;
-    ctx.lineCap = "round";
-    const stroke = (color, width, k, alpha = 1) => {
-        ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.lineWidth = width;
-        const ox = sg * nx * w * k, oy = sg * ny * w * k;
-        ctx.beginPath(); ctx.moveTo(a.x + ox, a.y + oy); ctx.lineTo(b.x + ox, b.y + oy); ctx.stroke();
-    };
-    ctx.save(); ctx.shadowColor = "rgba(70,25,15,.38)"; ctx.shadowBlur = w * 0.35;
-    stroke(skinShade(skin, .55), w + 1.5 + w * 0.06, 0, 0.9);
-    ctx.restore();
-    stroke(skinShade(skin, .8), w, 0);
-    stroke(skinShade(skin, .95), w * 0.8, 0.08);
-    stroke(skin, w * 0.55, 0.12);
-    stroke(skinShade(skin, 1.14), w * 0.24, 0.22, 0.6);
-    ctx.globalAlpha = 1;
+  const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
+  const nx = -dy / len, ny = dx / len, sg = (nx + ny) >= 0 ? -1 : 1;
+  ctx.lineCap = "round";
+  const stroke = (color, width, k, alpha = 1) => {
+    ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.lineWidth = width;
+    const ox = sg * nx * w * k, oy = sg * ny * w * k;
+    ctx.beginPath(); ctx.moveTo(a.x + ox, a.y + oy); ctx.lineTo(b.x + ox, b.y + oy); ctx.stroke();
+  };
+  ctx.save(); ctx.shadowColor = "rgba(70,25,15,.38)"; ctx.shadowBlur = w * 0.35;
+  stroke(skinShade(skin, .55), w + 1.5 + w * 0.06, 0, 0.9);
+  ctx.restore();
+  stroke(skinShade(skin, .8), w, 0);
+  stroke(skinShade(skin, .95), w * 0.8, 0.08);
+  stroke(skin, w * 0.55, 0.12);
+  stroke(skinShade(skin, 1.14), w * 0.24, 0.22, 0.6);
+  ctx.globalAlpha = 1;
 }
 function sphere(ctx, p, r, skin) {       // 指節：比手指略凸，明暗柔和
-    const g = ctx.createRadialGradient(p.x - r * .3, p.y - r * .3, r * .1, p.x, p.y, r);
-    g.addColorStop(0, skinShade(skin, 1.12)); g.addColorStop(.6, skin); g.addColorStop(1, skinShade(skin, .86));
-    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 7); ctx.fill();
+  const g = ctx.createRadialGradient(p.x - r * .3, p.y - r * .3, r * .1, p.x, p.y, r);
+  g.addColorStop(0, skinShade(skin, 1.12)); g.addColorStop(.6, skin); g.addColorStop(1, skinShade(skin, .86));
+  ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 7); ctx.fill();
 }
 // 關節皺褶：垂直於手指方向的短弧線
 function crease(ctx, p, d, w, skin, alpha, shift = 0) {
-    const n = { x: -d.y, y: d.x }, cx = p.x + d.x * w * shift, cy = p.y + d.y * w * shift;
-    ctx.strokeStyle = rgba(skinShade(skin, .5), alpha); ctx.lineWidth = Math.max(1, w * 0.07); ctx.lineCap = "round";
-    ctx.beginPath(); ctx.moveTo(cx + n.x * w * 0.34, cy + n.y * w * 0.34);
-    ctx.quadraticCurveTo(cx + d.x * w * 0.08, cy + d.y * w * 0.08, cx - n.x * w * 0.34, cy - n.y * w * 0.34); ctx.stroke();
+  const n = { x: -d.y, y: d.x }, cx = p.x + d.x * w * shift, cy = p.y + d.y * w * shift;
+  ctx.strokeStyle = rgba(skinShade(skin, .5), alpha); ctx.lineWidth = Math.max(1, w * 0.07); ctx.lineCap = "round";
+  ctx.beginPath(); ctx.moveTo(cx + n.x * w * 0.34, cy + n.y * w * 0.34);
+  ctx.quadraticCurveTo(cx + d.x * w * 0.08, cy + d.y * w * 0.08, cx - n.x * w * 0.34, cy - n.y * w * 0.34); ctx.stroke();
 }
 // 指甲（手背朝向鏡頭時才畫）：略帶粉色、有高光
 function nail(ctx, tip, d, w, skin) {
-    const nw = w * 0.6, nh = w * 0.78;
-    ctx.save(); ctx.translate(tip.x - d.x * w * 0.2, tip.y - d.y * w * 0.2); ctx.rotate(Math.atan2(d.y, d.x));
-    const g = ctx.createLinearGradient(-nh / 2, 0, nh / 2, 0);
-    g.addColorStop(0, mix(skin, "#e79a92", 0.45)); g.addColorStop(1, "#f7e4dc");
-    ctx.beginPath(); ctx.roundRect(-nh / 2, -nw / 2, nh, nw, nw * 0.38);
-    ctx.fillStyle = g; ctx.fill(); ctx.strokeStyle = rgba(skinShade(skin, .55), .5); ctx.lineWidth = 1; ctx.stroke();
-    ctx.strokeStyle = "rgba(255,255,255,.55)"; ctx.lineWidth = Math.max(1, w * 0.06); ctx.lineCap = "round";
-    ctx.beginPath(); ctx.moveTo(-nh * 0.18, -nw * 0.22); ctx.lineTo(nh * 0.12, -nw * 0.22); ctx.stroke();
-    ctx.restore();
+  const nw = w * 0.6, nh = w * 0.78;
+  ctx.save(); ctx.translate(tip.x - d.x * w * 0.2, tip.y - d.y * w * 0.2); ctx.rotate(Math.atan2(d.y, d.x));
+  const g = ctx.createLinearGradient(-nh / 2, 0, nh / 2, 0);
+  g.addColorStop(0, mix(skin, "#e79a92", 0.45)); g.addColorStop(1, "#f7e4dc");
+  ctx.beginPath(); ctx.roundRect(-nh / 2, -nw / 2, nh, nw, nw * 0.38);
+  ctx.fillStyle = g; ctx.fill(); ctx.strokeStyle = rgba(skinShade(skin, .55), .5); ctx.lineWidth = 1; ctx.stroke();
+  ctx.strokeStyle = "rgba(255,255,255,.55)"; ctx.lineWidth = Math.max(1, w * 0.06); ctx.lineCap = "round";
+  ctx.beginPath(); ctx.moveTo(-nh * 0.18, -nw * 0.22); ctx.lineTo(nh * 0.12, -nw * 0.22); ctx.stroke();
+  ctx.restore();
 }
 
 const FW = [1.12, .96, 1.0, .92, .8], TP = [1, .9, .8];     // 各手指粗細（拇指最粗、小指最細）與由根部到指尖的漸細
@@ -269,152 +146,146 @@ const FW = [1.12, .96, 1.0, .92, .8], TP = [1, .9, .8];     // 各手指粗細�
 /* 寫實的手：P 是 21 個點 {x, y, z}（畫布像素，z 越大越靠近觀看者）。
    依深度由遠到近繪製。手心：掌紋、拇指根部隆起；手背：筋腱、指甲；手指有關節皺褶與柔和陰影 */
 function renderHand(ctx, P, opt = {}) {
-    const skin = PROFILE.skin, palm = !!opt.palm;
-    const size = Math.hypot(P[9].x - P[0].x, P[9].y - P[0].y) || 1;
-    const wBase = size * 0.25;
-    const n = v3.cross(v3.sub(P[5], P[0]), v3.sub(P[17], P[0]));
-    const lit = Math.abs((n.x * -0.4 + n.y * -0.5 + n.z * 0.75) / (Math.hypot(n.x, n.y, n.z) || 1));
-    const dz = (z) => Math.max(0.8, Math.min(1.3, 1 + z / size * 0.25));   // 越近越粗
-    const zAvg = (idx) => idx.reduce((t, k) => t + P[k].z, 0) / idx.length;
-    const lp = (i, j, t) => ({ x: P[i].x + (P[j].x - P[i].x) * t, y: P[i].y + (P[j].y - P[i].y) * t });
-    const prims = [];
+  const skin = PROFILE.skin, palm = !!opt.palm;
+  const size = Math.hypot(P[9].x - P[0].x, P[9].y - P[0].y) || 1;
+  const wBase = size * 0.25;
+  const n = v3.cross(v3.sub(P[5], P[0]), v3.sub(P[17], P[0]));
+  const lit = Math.abs((n.x * -0.4 + n.y * -0.5 + n.z * 0.75) / (Math.hypot(n.x, n.y, n.z) || 1));
+  const dz = (z) => Math.max(0.8, Math.min(1.3, 1 + z / size * 0.25));   // 越近越粗
+  const zAvg = (idx) => idx.reduce((t, k) => t + P[k].z, 0) / idx.length;
+  const lp = (i, j, t) => ({ x: P[i].x + (P[j].x - P[i].x) * t, y: P[i].y + (P[j].y - P[i].y) * t });
+  const prims = [];
 
-    if (opt.wrist) {                                   // 手腕（特寫視圖用）
-        const d = { x: P[0].x - P[9].x, y: P[0].y - P[9].y }, l = Math.hypot(d.x, d.y) || 1;
-        const e = { x: P[0].x + d.x / l * size * 0.7, y: P[0].y + d.y / l * size * 0.7, z: P[0].z };
-        prims.push({ z: P[0].z - size, draw: () => shadedTube(ctx, P[0], e, wBase * 1.5, skin) });
+  if (opt.wrist) {                                   // 手腕（特寫視圖用）
+    const d = { x: P[0].x - P[9].x, y: P[0].y - P[9].y }, l = Math.hypot(d.x, d.y) || 1;
+    const e = { x: P[0].x + d.x / l * size * 0.7, y: P[0].y + d.y / l * size * 0.7, z: P[0].z };
+    prims.push({ z: P[0].z - size, draw: () => shadedTube(ctx, P[0], e, wBase * 1.5, skin) });
+  }
+  prims.push({ z: zAvg(PALM) - 0.01, draw: () => {  // 手掌：圓角外形，涵蓋拇指根部與掌緣
+    const ids = [0, 1, 2, 5, 9, 13, 17];
+    const cen = ids.reduce((t, i) => ({ x: t.x + P[i].x / ids.length, y: t.y + P[i].y / ids.length }), { x: 0, y: 0 });
+    const pts = ids.map(i => { const dx = P[i].x - cen.x, dy = P[i].y - cen.y, l = Math.hypot(dx, dy) || 1;
+      return [P[i].x + dx / l * wBase * 0.36, P[i].y + dy / l * wBase * 0.36]; });
+    const path = () => ovalPath(ctx, pts, 1, 0);
+    const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+    const g = ctx.createLinearGradient(Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys));
+    g.addColorStop(0, skinShade(skin, .95 + .2 * lit)); g.addColorStop(1, skinShade(skin, .78 + .18 * lit));
+    ctx.save(); ctx.shadowColor = "rgba(0,0,0,.28)"; ctx.shadowBlur = size * 0.18; ctx.shadowOffsetY = size * 0.07;
+    path(); ctx.fillStyle = skinShade(skin, .7); ctx.fill(); ctx.restore();
+    path(); ctx.fillStyle = g; ctx.fill();
+    ctx.save(); path(); ctx.clip(); ctx.lineCap = "round";
+    if (palm) {                                      // 手心：拇指根部隆起的高光 + 三條主要掌紋
+      const t = lp(1, 0, 0.3), hg = ctx.createRadialGradient(t.x, t.y, 0, t.x, t.y, size * 0.3);
+      hg.addColorStop(0, "rgba(255,240,230,.28)"); hg.addColorStop(1, "rgba(255,240,230,0)");
+      ctx.fillStyle = hg; ctx.fillRect(t.x - size, t.y - size, size * 2, size * 2);
+      ctx.strokeStyle = rgba(skinShade(skin, .5), .36); ctx.lineWidth = Math.max(1.2, size * 0.013);
+      const line = (a, c, b) => { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(c.x, c.y, b.x, b.y); ctx.stroke(); };
+      const toward = (p, k) => ({ x: p.x + (P[0].x - p.x) * k, y: p.y + (P[0].y - p.y) * k });
+      line(lp(17, 0, .3), toward(lp(13, 9, .5), .3), lp(5, 0, .22));          // 感情線
+      line(lp(5, 0, .42), toward(lp(9, 13, .5), .5), lp(17, 0, .62));         // 智慧線
+      line(lp(5, 2, .5), lp(1, 9, .3), lp(0, 9, .12));                        // 生命線
+    } else {                                         // 手背：掌骨之間的筋腱
+      ctx.strokeStyle = rgba(skinShade(skin, .55), .17); ctx.lineWidth = Math.max(2, size * 0.03);
+      [5, 9, 13, 17].forEach(i => { const a = lp(i, 0, .12), b = lp(i, 0, .66); ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); });
+      ctx.strokeStyle = "rgba(255,255,255,.1)"; ctx.lineWidth = Math.max(1.5, size * 0.016);
+      [5, 9, 13, 17].forEach(i => { const a = lp(i, 0, .14), b = lp(i, 0, .6); ctx.beginPath(); ctx.moveTo(a.x - 2, a.y); ctx.lineTo(b.x - 2, b.y); ctx.stroke(); });
     }
-    prims.push({
-        z: zAvg(PALM) - 0.01, draw: () => {  // 手掌：圓角外形，涵蓋拇指根部與掌緣
-            const ids = [0, 1, 2, 5, 9, 13, 17];
-            const cen = ids.reduce((t, i) => ({ x: t.x + P[i].x / ids.length, y: t.y + P[i].y / ids.length }), { x: 0, y: 0 });
-            const pts = ids.map(i => {
-                const dx = P[i].x - cen.x, dy = P[i].y - cen.y, l = Math.hypot(dx, dy) || 1;
-                return [P[i].x + dx / l * wBase * 0.36, P[i].y + dy / l * wBase * 0.36];
-            });
-            const path = () => ovalPath(ctx, pts, 1, 0);
-            const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
-            const g = ctx.createLinearGradient(Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys));
-            g.addColorStop(0, skinShade(skin, .95 + .2 * lit)); g.addColorStop(1, skinShade(skin, .78 + .18 * lit));
-            ctx.save(); ctx.shadowColor = "rgba(0,0,0,.28)"; ctx.shadowBlur = size * 0.18; ctx.shadowOffsetY = size * 0.07;
-            path(); ctx.fillStyle = skinShade(skin, .7); ctx.fill(); ctx.restore();
-            path(); ctx.fillStyle = g; ctx.fill();
-            ctx.save(); path(); ctx.clip(); ctx.lineCap = "round";
-            if (palm) {                                      // 手心：拇指根部隆起的高光 + 三條主要掌紋
-                const t = lp(1, 0, 0.3), hg = ctx.createRadialGradient(t.x, t.y, 0, t.x, t.y, size * 0.3);
-                hg.addColorStop(0, "rgba(255,240,230,.28)"); hg.addColorStop(1, "rgba(255,240,230,0)");
-                ctx.fillStyle = hg; ctx.fillRect(t.x - size, t.y - size, size * 2, size * 2);
-                ctx.strokeStyle = rgba(skinShade(skin, .5), .36); ctx.lineWidth = Math.max(1.2, size * 0.013);
-                const line = (a, c, b) => { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(c.x, c.y, b.x, b.y); ctx.stroke(); };
-                const toward = (p, k) => ({ x: p.x + (P[0].x - p.x) * k, y: p.y + (P[0].y - p.y) * k });
-                line(lp(17, 0, .3), toward(lp(13, 9, .5), .3), lp(5, 0, .22));          // 感情線
-                line(lp(5, 0, .42), toward(lp(9, 13, .5), .5), lp(17, 0, .62));         // 智慧線
-                line(lp(5, 2, .5), lp(1, 9, .3), lp(0, 9, .12));                        // 生命線
-            } else {                                         // 手背：掌骨之間的筋腱
-                ctx.strokeStyle = rgba(skinShade(skin, .55), .17); ctx.lineWidth = Math.max(2, size * 0.03);
-                [5, 9, 13, 17].forEach(i => { const a = lp(i, 0, .12), b = lp(i, 0, .66); ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); });
-                ctx.strokeStyle = "rgba(255,255,255,.1)"; ctx.lineWidth = Math.max(1.5, size * 0.016);
-                [5, 9, 13, 17].forEach(i => { const a = lp(i, 0, .14), b = lp(i, 0, .6); ctx.beginPath(); ctx.moveTo(a.x - 2, a.y); ctx.lineTo(b.x - 2, b.y); ctx.stroke(); });
-            }
-            ctx.restore();
-            path(); ctx.strokeStyle = rgba(skinShade(skin, .5), .5); ctx.lineWidth = 1.5 + size * 0.01; ctx.stroke();
-        }
+    ctx.restore();
+    path(); ctx.strokeStyle = rgba(skinShade(skin, .5), .5); ctx.lineWidth = 1.5 + size * 0.01; ctx.stroke();
+  } });
+  FINGERS.forEach((f, fi) => {
+    const fw = wBase * FW[fi];
+    for (let k = 0; k < 3; k++) {
+      const a = P[f[k]], b = P[f[k + 1]], z = (a.z + b.z) / 2;
+      prims.push({ z: k === 0 ? Math.max(z, zAvg(PALM) + 0.02) : z, draw: () => shadedTube(ctx, a, b, fw * TP[k] * dz(z), skin) });   // 指根永遠畫在手掌之上
+    }
+    [1, 2].forEach(k => {                            // 指節 + 關節皺褶
+      const j = P[f[k]], w = fw * TP[k] * dz(j.z);
+      const ln = Math.hypot(P[f[k + 1]].x - P[f[k - 1]].x, P[f[k + 1]].y - P[f[k - 1]].y) || 1;
+      const d = { x: (P[f[k + 1]].x - P[f[k - 1]].x) / ln, y: (P[f[k + 1]].y - P[f[k - 1]].y) / ln };
+      prims.push({ z: j.z + 0.5, draw: () => {
+        sphere(ctx, j, w * 0.5, skin);
+        const shifts = k === 1 ? (palm ? [-.14, .14] : [-.2, 0, .2]) : (palm ? [0] : [-.08, .08]);
+        shifts.forEach(sh => crease(ctx, j, d, w, skin, palm ? .5 : .34, sh));
+      } });
     });
-    FINGERS.forEach((f, fi) => {
-        const fw = wBase * FW[fi];
-        for (let k = 0; k < 3; k++) {
-            const a = P[f[k]], b = P[f[k + 1]], z = (a.z + b.z) / 2;
-            prims.push({ z: k === 0 ? Math.max(z, zAvg(PALM) + 0.02) : z, draw: () => shadedTube(ctx, a, b, fw * TP[k] * dz(z), skin) });   // 指根永遠畫在手掌之上
-        }
-        [1, 2].forEach(k => {                            // 指節 + 關節皺褶
-            const j = P[f[k]], w = fw * TP[k] * dz(j.z);
-            const ln = Math.hypot(P[f[k + 1]].x - P[f[k - 1]].x, P[f[k + 1]].y - P[f[k - 1]].y) || 1;
-            const d = { x: (P[f[k + 1]].x - P[f[k - 1]].x) / ln, y: (P[f[k + 1]].y - P[f[k - 1]].y) / ln };
-            prims.push({
-                z: j.z + 0.5, draw: () => {
-                    sphere(ctx, j, w * 0.5, skin);
-                    const shifts = k === 1 ? (palm ? [-.14, .14] : [-.2, 0, .2]) : (palm ? [0] : [-.08, .08]);
-                    shifts.forEach(sh => crease(ctx, j, d, w, skin, palm ? .5 : .34, sh));
-                }
-            });
-        });
-        const tip = P[f[3]], tw = fw * TP[2] * dz(tip.z);
-        const tl = Math.hypot(tip.x - P[f[2]].x, tip.y - P[f[2]].y) || 1;
-        const td = { x: (tip.x - P[f[2]].x) / tl, y: (tip.y - P[f[2]].y) / tl };
-        prims.push({ z: tip.z + 0.5, draw: () => { sphere(ctx, tip, tw * 0.48, skin); if (!palm) nail(ctx, tip, td, tw, skin); } });
-    });
-    prims.sort((p, q) => p.z - q.z).forEach(p => p.draw());
+    const tip = P[f[3]], tw = fw * TP[2] * dz(tip.z);
+    const tl = Math.hypot(tip.x - P[f[2]].x, tip.y - P[f[2]].y) || 1;
+    const td = { x: (tip.x - P[f[2]].x) / tl, y: (tip.y - P[f[2]].y) / tl };
+    prims.push({ z: tip.z + 0.5, draw: () => { sphere(ctx, tip, tw * 0.48, skin); if (!palm) nail(ctx, tip, td, tw, skin); } });
+  });
+  prims.sort((p, q) => p.z - q.z).forEach(p => p.draw());
 }
 
 // 角色畫布用：把偵測到的關節點（0~1）轉成畫布座標與深度，再交給寫實繪製
 function drawHand(ctx, lm, mirror = true, clear = true) {
-    const W = ctx.canvas.width, H = ctx.canvas.height;
-    if (clear) ctx.clearRect(0, 0, W, H);
-    if (!lm) return;
-    renderHand(ctx, lm.map(p => ({ x: (mirror ? 1 - p.x : p.x) * W, y: p.y * H, z: -(p.z || 0) * W })), { palm: palmFacing(lm) });
+  const W = ctx.canvas.width, H = ctx.canvas.height;
+  if (clear) ctx.clearRect(0, 0, W, H);
+  if (!lm) return;
+  renderHand(ctx, lm.map(p => ({ x: (mirror ? 1 - p.x : p.x) * W, y: p.y * H, z: -(p.z || 0) * W })), { palm: palmFacing(lm) });
 }
 
 /* 圓管（手臂、脖子）：可指定填色與描邊色 */
 function drawTube(ctx, pts, width, fill = PROFILE.skin, line = skinShade(PROFILE.skin, .7)) {
-    ctx.lineCap = ctx.lineJoin = "round";
-    for (const [color, extra] of [[line, 4], [fill, 0]]) {
-        ctx.strokeStyle = color; ctx.lineWidth = width + extra * 2;
-        ctx.beginPath();
-        pts.forEach((p, k) => k ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
-        ctx.stroke();
-    }
+  ctx.lineCap = ctx.lineJoin = "round";
+  for (const [color, extra] of [[line, 4], [fill, 0]]) {
+    ctx.strokeStyle = color; ctx.lineWidth = width + extra * 2;
+    ctx.beginPath();
+    pts.forEach((p, k) => k ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+    ctx.stroke();
+  }
 }
 
 /* 虛擬人物：身體、頭、臉、手臂（姿勢偵測）+ 手掌手指（手部偵測） */
 function drawAvatar(ctx, pose, hands, face = {}) {
-    const W = ctx.canvas.width, H = ctx.canvas.height;
-    ctx.clearRect(0, 0, W, H);
-    const toPx = (p) => ({ x: (1 - p.x) * W, y: p.y * H });
-    const SHIRT = PROFILE.shirt, SHIRT_L = shade(PROFILE.shirt, .65);
-    const seen = (i) => pose[i] && (pose[i].visibility ?? 1) > 0.4;
+  const W = ctx.canvas.width, H = ctx.canvas.height;
+  ctx.clearRect(0, 0, W, H);
+  const toPx = (p) => ({ x: (1 - p.x) * W, y: p.y * H });
+  const SHIRT = PROFILE.shirt, SHIRT_L = shade(PROFILE.shirt, .65);
+  const seen = (i) => pose[i] && (pose[i].visibility ?? 1) > 0.4;
 
-    if (pose) {
-        const L = toPx(pose[11]), R = toPx(pose[12]);
-        const sw = Math.hypot(L.x - R.x, L.y - R.y);
-        const armW = Math.max(14, sw * 0.2);
-        const mid = { x: (L.x + R.x) / 2, y: (L.y + R.y) / 2 };
+  if (pose) {
+    const L = toPx(pose[11]), R = toPx(pose[12]);
+    const sw = Math.hypot(L.x - R.x, L.y - R.y);
+    const armW = Math.max(14, sw * 0.2);
+    const mid = { x: (L.x + R.x) / 2, y: (L.y + R.y) / 2 };
 
-        const nose = toPx(pose[0]), r = sw * 0.38;
-        const head = { x: nose.x, y: nose.y - PROFILE.noseY * r };   // 臉部中心 = 鼻尖往上推
-        const chinY = Math.max(...PROFILE.oval.map(p => p[1])) * r * 0.95, longDrop = (mid.y - head.y) + sw * 0.3;
-        const hairDrop = chinY + (longDrop - chinY) * Math.max(0, Math.min(1, PROFILE.hairLen ?? 1));   // 髮長：0 = 及下巴，1 = 過肩
-        if (PROFILE.hairStyle === "long" || PROFILE.hairBun) drawFace(ctx, head, r, face, "back", hairDrop);
+    const nose = toPx(pose[0]), r = sw * 0.38;
+    const head = { x: nose.x, y: nose.y - PROFILE.noseY * r };   // 臉部中心 = 鼻尖往上推
+    const chinY = Math.max(...PROFILE.oval.map(p => p[1])) * r * 0.95, longDrop = (mid.y - head.y) + sw * 0.3;
+    const hairDrop = chinY + (longDrop - chinY) * Math.max(0, Math.min(1, PROFILE.hairLen ?? 1));   // 髮長：0 = 及下巴，1 = 過肩
+    if (PROFILE.hairStyle === "long" || PROFILE.hairBun) drawFace(ctx, head, r, face, "back", hairDrop);
 
-        // 身體（上衣）：看不到髖部時往下延伸
-        const bl = seen(23) ? toPx(pose[23]) : { x: L.x, y: L.y + sw * 1.8 };
-        const br = seen(24) ? toPx(pose[24]) : { x: R.x, y: R.y + sw * 1.8 };
-        const tg = ctx.createLinearGradient(0, Math.min(L.y, R.y), 0, Math.max(bl.y, br.y));
-        tg.addColorStop(0, shade(SHIRT, 1.15)); tg.addColorStop(1, shade(SHIRT, .78));
-        ctx.fillStyle = tg; ctx.strokeStyle = SHIRT_L; ctx.lineWidth = 4; ctx.lineJoin = "round";
-        ctx.beginPath();
-        ctx.moveTo(L.x, L.y); ctx.lineTo(R.x, R.y); ctx.lineTo(br.x, br.y); ctx.lineTo(bl.x, bl.y);
-        ctx.closePath(); ctx.fill(); ctx.stroke();
+    // 身體（上衣）：看不到髖部時往下延伸
+    const bl = seen(23) ? toPx(pose[23]) : { x: L.x, y: L.y + sw * 1.8 };
+    const br = seen(24) ? toPx(pose[24]) : { x: R.x, y: R.y + sw * 1.8 };
+    const tg = ctx.createLinearGradient(0, Math.min(L.y, R.y), 0, Math.max(bl.y, br.y));
+    tg.addColorStop(0, shade(SHIRT, 1.15)); tg.addColorStop(1, shade(SHIRT, .78));
+    ctx.fillStyle = tg; ctx.strokeStyle = SHIRT_L; ctx.lineWidth = 4; ctx.lineJoin = "round";
+    ctx.beginPath();
+    ctx.moveTo(L.x, L.y); ctx.lineTo(R.x, R.y); ctx.lineTo(br.x, br.y); ctx.lineTo(bl.x, bl.y);
+    ctx.closePath(); ctx.fill(); ctx.stroke();
 
-        ctx.fillStyle = skinShade(PROFILE.skin, .88);                 // V 領露出的胸口
-        ctx.beginPath(); ctx.moveTo(mid.x - sw * 0.13, mid.y - 2); ctx.lineTo(mid.x + sw * 0.13, mid.y - 2); ctx.lineTo(mid.x, mid.y + sw * 0.2); ctx.closePath(); ctx.fill();
-        ctx.strokeStyle = SHIRT_L; ctx.lineWidth = 2; ctx.stroke();
-        // 脖子 + 頭（臉會跟著你的表情與傾斜）
-        drawTube(ctx, [mid, { x: head.x, y: head.y + r * 0.9 }], r * 0.5);
-        drawFace(ctx, head, r, face, "front", hairDrop);
+    ctx.fillStyle = skinShade(PROFILE.skin, .88);                 // V 領露出的胸口
+    ctx.beginPath(); ctx.moveTo(mid.x - sw * 0.13, mid.y - 2); ctx.lineTo(mid.x + sw * 0.13, mid.y - 2); ctx.lineTo(mid.x, mid.y + sw * 0.2); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = SHIRT_L; ctx.lineWidth = 2; ctx.stroke();
+    // 脖子 + 頭（臉會跟著你的表情與傾斜）
+    drawTube(ctx, [mid, { x: head.x, y: head.y + r * 0.9 }], r * 0.5);
+    drawFace(ctx, head, r, face, "front", hairDrop);
 
-        // 手臂：上臂是袖子，前臂是皮膚，手腕對齊最近的手
-        [[11, 13, 15], [12, 14, 16]].forEach(([s, e, w]) => {
-            if (!seen(s) || !seen(e) || !seen(w)) return;
-            let wrist = toPx(pose[w]);
-            const near = hands.map(h => toPx(h[0]))
-                .sort((p, q) => Math.hypot(p.x - wrist.x, p.y - wrist.y) - Math.hypot(q.x - wrist.x, q.y - wrist.y))[0];
-            if (near && Math.hypot(near.x - wrist.x, near.y - wrist.y) < W * 0.15) wrist = near;
-            const elbow = toPx(pose[e]);
-            drawTube(ctx, [toPx(pose[s]), elbow], armW * 1.15, SHIRT, SHIRT_L);
-            drawTube(ctx, [elbow, wrist], armW * 0.85);
-        });
-    }
-    hands.forEach(h => drawHand(ctx, h, true, false));
+    // 手臂：上臂是袖子，前臂是皮膚，手腕對齊最近的手
+    [[11, 13, 15], [12, 14, 16]].forEach(([s, e, w]) => {
+      if (!seen(s) || !seen(e) || !seen(w)) return;
+      let wrist = toPx(pose[w]);
+      const near = hands.map(h => toPx(h[0]))
+        .sort((p, q) => Math.hypot(p.x - wrist.x, p.y - wrist.y) - Math.hypot(q.x - wrist.x, q.y - wrist.y))[0];
+      if (near && Math.hypot(near.x - wrist.x, near.y - wrist.y) < W * 0.15) wrist = near;
+      const elbow = toPx(pose[e]);
+      drawTube(ctx, [toPx(pose[s]), elbow], armW * 1.15, SHIRT, SHIRT_L);
+      drawTube(ctx, [elbow, wrist], armW * 0.85);
+    });
+  }
+  hands.forEach(h => drawHand(ctx, h, true, false));
 }
 
 /* ---------- 長髮：後面的頭髮（在身體後方）+ 前面的瀏海與兩側垂髮（蓋在臉與肩膀前方） ---------- */
@@ -1427,6 +1298,7 @@ function profileFromFace(frames, gs) {
 }
 
 const syncPickers = () => {
+  $("genderMode").value = genderMode;
   $("colSkin").value = PROFILE.skin; $("colHair").value = PROFILE.hair;
   $("colShirt").value = PROFILE.shirt; $("colEye").value = PROFILE.eye; $("hairStyle").value = PROFILE.hairStyle;
   $("glasses").value = PROFILE.glasses || "none"; $("beardAmt").value = Math.round((PROFILE.beard || 0) * 100);
@@ -1445,7 +1317,45 @@ function grabFrame() {            // 擷取目前鏡頭畫面（取樣顏色用�
   return g;
 }
 // 把偵測到的髮型整理成一句話
-function hairDesc(p) { return p.hairStyle === "long" ? "長髮" : "短髮"; }
+function hairDesc(p) { return p.hairStyle === "long" ? "中長髮" : "短髮"; }
+
+/* ---------- 性別偵測：載入小型模型（face-api 的 age/gender，約 1.7 MB，只下載一次），全程在你的瀏覽器裡執行，影像不會上傳 ---------- */
+const FACEAPI = "https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.13";
+let faceapiP = null;
+function loadGenderNet() {
+  return faceapiP ??= (async () => {
+    const api = await import(`${FACEAPI}/dist/face-api.esm.js`);
+    await api.nets.ageGenderNet.loadFromUri(`${FACEAPI}/model`);
+    return api;
+  })().catch(e => { faceapiP = null; throw e; });
+}
+function cropFace(canvas, lm) {                          // 以臉部輪廓取正方形裁切（略放大 5%），縮成 112×112
+  const W = canvas.width, H = canvas.height, xs = OVAL.map(i => lm[i].x * W), ys = OVAL.map(i => lm[i].y * H);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const side = Math.max(x1 - x0, y1 - y0) * 1.05, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  const c = document.createElement("canvas"); c.width = c.height = 112;
+  c.getContext("2d").drawImage(canvas, cx - side / 2, cy - side / 2, side, side, 0, 0, 112, 112);
+  return c;
+}
+async function detectGender(frames) {                    // 取最多 5 個不同時間點的畫面，平均「女性機率」
+  const shots = frames.filter(f => f.g && f.lm).slice(0, 5);
+  if (!shots.length) return null;
+  const api = await loadGenderNet();
+  let q = 0;
+  for (const f of shots) {
+    const r = await api.nets.ageGenderNet.predictAgeAndGender(cropFace(f.g.canvas, f.lm));
+    q += r.gender === "female" ? r.genderProbability : 1 - r.genderProbability;
+  }
+  q /= shots.length;
+  return { gender: q >= 0.5 ? "female" : "male", conf: Math.max(q, 1 - q) };
+}
+const GENDER_TEXT = { male: "男性", female: "女性" };
+function setGenderInfo(t) { $("genderInfo").textContent = t; }
+function describeGender() {
+  const g = genderOf(PROFILE);
+  if (!g) return "尚未判斷：可手動選擇性別";
+  return `${genderMode === "auto" ? "偵測為" : "手動選擇"}${GENDER_TEXT[g]}${genderMode === "auto" && PROFILE.genderConf ? `（把握 ${Math.round(PROFILE.genderConf * 100)}%）` : ""} → ${g === "female" ? "中長髮" : "短髮"}`;
+}
 function applyProfile(frames, st, doneMsg) {
   let gs = frames.map(f => f.g).filter(Boolean);       // 用多個不同時間點的畫面一起取樣，降低閃爍與雜訊的影響
   if (!gs.length) gs = [grabFrame()];
@@ -1453,10 +1363,20 @@ function applyProfile(frames, st, doneMsg) {
     const out = profileFromFace(frames, gs), note = out.lightNote; delete out.lightNote;
     if (out.hairDebug) console.log("髮型偵測數據", out.hairDebug); delete out.hairDebug;
     Object.assign(PROFILE, out);
-      normalizeProfile(PROFILE, true);
+    if (genderMode === "auto") { PROFILE.gender = null; PROFILE.genderConf = 0; }      // 換人時先清掉上一位的判斷
+    normalizeProfile(PROFILE, true);
     saveProfile(); syncPickers();
     st.textContent = `${doneMsg}｜${note}｜${hairDesc(PROFILE)}${PROFILE.hairConf < 0.6 ? "（背景與髮色接近，髮型可能不準）" : ""}、${PROFILE.beard > 0.25 ? "有鬍鬚" : "無鬍鬚"}`;
   } catch (e) { console.error(e); st.textContent = "建立失敗：" + e.message; }
+  if (genderMode === "auto") {                         // 性別偵測需要載入模型，在背景進行，完成後再更新髮型
+    setGenderInfo("性別偵測中…（第一次需下載約 1.7 MB 模型）");
+    detectGender(frames).then(res => {
+      if (genderMode !== "auto") return;
+      if (res && res.conf >= 0.6) { PROFILE.gender = res.gender; PROFILE.genderConf = res.conf; }
+      normalizeProfile(PROFILE, true); saveProfile(); syncPickers(); refreshAvatar();
+      setGenderInfo(res && res.conf >= 0.6 ? describeGender() : "無法確定性別，請手動選擇");
+    }).catch(e => { console.warn("性別偵測失敗：", e); setGenderInfo("性別偵測失敗（" + (e.message || e) + "），請手動選擇"); });
+  } else setGenderInfo(describeGender());
 }
 
 $("buildBtn").onclick = async () => {
@@ -1481,6 +1401,13 @@ $("hairCurl").oninput = (e) => { PROFILE.hairCurl = e.target.value / 100; savePr
 $("hairBun").onchange = (e) => { PROFILE.hairBun = e.target.checked; saveProfile(); refreshAvatar(); };
 $("glasses").oninput = (e) => { PROFILE.glasses = e.target.value; saveProfile(); refreshAvatar(); };
 $("beardAmt").oninput = (e) => { PROFILE.beard = e.target.value / 100; saveProfile(); refreshAvatar(); };
+$("genderMode").onchange = (e) => {
+  genderMode = e.target.value;
+  try { localStorage.setItem(GENDER_KEY, genderMode); } catch {}
+  normalizeProfile(PROFILE, false); saveProfile(); syncPickers(); refreshAvatar();
+  setGenderInfo(genderMode === "auto" && running ? "將在下次辨識外表時自動偵測" : describeGender());
+  if (genderMode === "auto" && running) { autoDone = false; autoFrames = []; lastAutoMsg = ""; }       // 鏡頭開著就重新辨識一次
+};
 $("resetProfile").onclick = () => { PROFILE = normalizeProfile({ ...DEFAULT_PROFILE }, false); saveProfile(); syncPickers(); refreshAvatar(); $("buildStatus").textContent = "已還原成預設角色"; };
 syncPickers();
 
@@ -1688,6 +1615,90 @@ function captureFrame(now, pose, hands, face) {
   recState.frames.push({ t: now - recState.t0, pose, hands, blend: face.blend, roll: face.roll, yaw: face.yaw, pitch: face.pitch });
   if (now - recState.t0 > 6000) stopRecording();
 }
+/* ---------- 錄影並上傳到後端 POST /api/recognize ----------
+   之前錄製詞典只保存「關節點」，沒有保存影片檔，所以「上傳最近錄製影片」永遠是「沒有可上傳的影片」。
+   現在錄製時會同時用 MediaRecorder 把鏡頭畫面錄成影片；上傳格式為 multipart/form-data：
+   video、session_id、scenario_id、language，回應為 { success, data: { text }, error } */
+let lastVideo = null, vrec = null, uploading = false;
+const SESSION_ID = (() => {
+  try { let v = sessionStorage.getItem("signbridge.session"); if (!v) { v = "session-" + Math.random().toString(36).slice(2, 8); sessionStorage.setItem("signbridge.session", v); } return v; }
+  catch { return "session-001"; }
+})();
+const setApiStatus = (t) => { $("uploadStatus").textContent = t; $("signApiStatus").textContent = t; };
+function appendTranscript(text) {
+  const t = $("transcript");
+  if (t.dataset.empty !== "0") { t.textContent = ""; t.dataset.empty = "0"; }
+  t.textContent += text + " ";
+}
+function startVideoCapture() {
+  try {
+    if (!window.MediaRecorder || !video.srcObject) return null;
+    const mime = ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm", "video/mp4"].find(m => MediaRecorder.isTypeSupported(m)) || "";
+    const chunks = [], mr = new MediaRecorder(video.srcObject, mime ? { mimeType: mime, videoBitsPerSecond: 2500000 } : undefined);
+    mr.ondataavailable = (e) => { if (e.data && e.data.size) chunks.push(e.data); };
+    const done = new Promise(res => { mr.onstop = () => res(new Blob(chunks, { type: mr.mimeType || mime || "video/webm" })); });
+    mr.start(250);
+    return { mr, done };
+  } catch (e) { console.warn("無法錄影：", e); return null; }
+}
+function finishCapture(cap) { if (cap.mr.state !== "inactive") cap.mr.stop(); return cap.done; }
+
+async function uploadVideo(blob) {
+  if (uploading) return null;
+  uploading = true; setApiStatus("上傳中…（" + (blob.size / 1024).toFixed(0) + " KB）");
+  try {
+    const fd = new FormData();
+    fd.append("video", blob, `sign-${Date.now()}.${(blob.type || "").includes("mp4") ? "mp4" : "webm"}`);
+    fd.append("session_id", SESSION_ID);
+    fd.append("scenario_id", $("scenarioId").value);
+    fd.append("language", "zh-TW");
+    const res = await fetch("/api/recognize", { method: "POST", body: fd });
+    let json = null; try { json = await res.json(); } catch {}
+    if (!res.ok || !json || json.success !== true) {
+      const why = json?.error?.message || (res.status === 404
+        ? "找不到 /api/recognize：後端沒有啟動（請用 Visual Studio 或 dotnet run 執行 SignBridge 專案，不要用 Live Server 或 python http.server）"
+        : `伺服器回應 ${res.status}`);
+      setApiStatus("辨識失敗：" + why); return null;
+    }
+    const text = json.data?.text ?? "";
+    setApiStatus(`辨識結果：「${text}」（${SESSION_ID}）`);
+    appendTranscript(text);
+    return text;
+  } catch (e) {
+    setApiStatus("無法連到後端：" + e.message); return null;
+  } finally { uploading = false; }
+}
+$("uploadBtn").onclick = async () => {
+  if (!lastVideo) { setApiStatus("沒有可上傳的影片：請先錄製一段影片"); return; }
+  await uploadVideo(lastVideo.blob);
+};
+
+// 「手語 → 文字」區塊的直接錄影：錄一段 → 上傳 → 顯示後端回傳的中文
+let clipCap = null, clipTimer = 0, clipStarting = false;
+async function stopClipAndUpload() {
+  clearTimeout(clipTimer);
+  const cap = clipCap; clipCap = null;
+  $("signRecBtn").textContent = "錄影並送去辨識";
+  if (!cap) return;
+  const blob = await finishCapture(cap);
+  if (!blob || blob.size < 1000) { setApiStatus("沒有錄到影片，請再試一次"); return; }
+  lastVideo = { blob, word: "（直接辨識）", at: Date.now() };
+  await uploadVideo(blob);
+}
+$("signRecBtn").onclick = async () => {
+  if (clipCap) return stopClipAndUpload();
+  if (clipStarting) return;
+  if (!running) { setApiStatus("請先按「開啟鏡頭」"); return; }
+  if (!window.MediaRecorder) { setApiStatus("此瀏覽器不支援錄影（MediaRecorder），請改用 Chrome 或 Edge"); return; }
+  clipStarting = true;
+  for (let n = 3; n > 0; n--) { setApiStatus(`${n} 秒後開始錄影，請準備`); await sleep(1000); }
+  clipStarting = false;
+  clipCap = startVideoCapture();
+  if (!clipCap) { setApiStatus("無法開始錄影"); return; }
+  $("signRecBtn").textContent = "停止並辨識"; setApiStatus("錄影中（最長 6 秒）");
+  clipTimer = setTimeout(stopClipAndUpload, 6000);
+};
+
 $("recBtn").onclick = async () => {
   if (recState) return stopRecording();
   if (counting) return;
@@ -1698,11 +1709,14 @@ $("recBtn").onclick = async () => {
   for (let n = 3; n > 0; n--) { $("recStatus").textContent = `${n} 秒後開始，請準備`; await sleep(1000); }
   counting = false;
   recState = { word, frames: [], t0: performance.now(), last: -1e9 };
+  vrec = startVideoCapture();                         // 同時把鏡頭畫面錄成影片，供「上傳最近錄製影片」使用
   $("recBtn").textContent = "停止並儲存";
   $("recStatus").textContent = "錄製中（最長 6 秒）";
 };
 function stopRecording() {
   const { frames } = recState, word = recState.word.replace(/#/g, ""); recState = null;
+  const cap = vrec; vrec = null;
+  const videoDone = cap ? finishCapture(cap) : Promise.resolve(null);
   $("recBtn").textContent = "開始錄製";
   const keep = frames.filter(f => f.pose || f.hands.length);
   if (keep.length < 5) { $("recStatus").textContent = "錄到的畫面太少，請確認人在鏡頭內再試一次"; return; }
@@ -1712,6 +1726,11 @@ function stopRecording() {
   CLIPS[key] = { frames: keep, dur: keep[keep.length - 1].t };
   saveClips(); renderClips();
   $("recStatus").textContent = `已儲存「${word}」${key !== word ? `（樣本 ${key.split("#")[1]}）` : ""}（${(CLIPS[key].dur / 1000).toFixed(1)} 秒）`;
+  videoDone.then(blob => {
+    if (!blob || blob.size < 1000) return;
+    lastVideo = { blob, word, at: Date.now() };
+    $("uploadStatus").textContent = `可以上傳：最近錄製的「${word}」影片（${(blob.size / 1024).toFixed(0)} KB）`;
+  });
 }
 
 // 重現：在兩格之間做線性內插，動作才會順
@@ -1943,11 +1962,3 @@ function showPose(ext, expr = {}, ctx = actx) {
 }
 showPose(DICT["你好"]);
 idleStage();
-
-
-/* ---------- 綁定 upload button（放在檔案底部 renderClips() 之後） ---------- */
-try { if ($("uploadBtn")) $("uploadBtn").onclick = uploadLastRecording; } catch { }
-// 額外：在初始化時確保 renderClips() 仍被呼叫（原本程式內已有）
-try { renderClips(); } catch { }
-// 初始示範畫面
-try { showPose(DICT["你好"]); idleStage(); } catch { }

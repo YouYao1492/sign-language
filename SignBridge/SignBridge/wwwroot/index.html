@@ -51,6 +51,11 @@
       </div>
       <label class="check"><input type="checkbox" id="tagEmo"> 在辨識出的文字後面標註情緒，例如「好(開心)」</label>
       <p class="hint small">情緒是依臉部肌肉動作推估，只代表「臉上的表情」，不一定是真實感受。手語本身也會用眉毛和嘴型表達語法（例如挑眉表示疑問），不一定代表情緒。</p>
+      <div class="row apirow">
+        <button id="signRecBtn">錄影並送去辨識</button>
+        <label class="inline">情境 <select id="scenarioId"><option value="medical">醫療（medical）</option><option value="police">警察（police）</option><option value="general">一般（general）</option></select></label>
+        <span id="signApiStatus" role="status"></span>
+      </div>
       <div class="transcript" id="transcript" aria-live="polite">辨識結果會顯示在這裡。</div>
       <button id="clearBtn" class="ghost">清除文字</button>
       <div class="row signctl">
@@ -72,9 +77,13 @@
         <label>髮色 <input type="color" id="colHair"></label>
         <label>衣服 <input type="color" id="colShirt"></label>
         <label>眼睛 <input type="color" id="colEye"></label>
+        <label class="inline">性別（決定髮型）
+          <select id="genderMode"><option value="auto">自動偵測</option><option value="male">男性（短髮）</option><option value="female">女性（中長髮）</option></select>
+        </label>
+        <span class="expr" id="genderInfo"></span>
         <label>眼鏡 <select id="glasses"><option value="none">無</option><option value="round">圓框</option><option value="square">方框</option></select></label>
         <label>鬍子 <input type="range" id="beardAmt" min="0" max="100" step="5" value="0"></label>
-        <label>髮型
+        <label hidden>髮型
           <select id="hairStyle"><option value="short">短髮</option><option value="long">長髮</option></select>
         </label>
         <label hidden>瀏海
@@ -85,6 +94,7 @@
         <label hidden><input type="checkbox" id="hairBun"> 丸子頭</label>
         <button id="resetProfile" class="ghost">還原預設</button>
       </div>
+      <p class="hint small">性別只用來決定預設的髮型：男性畫短髮、女性畫中長髮。自動偵測只是依臉部外觀推測，可能不準，也不代表本人的性別認同，不準時請直接在選單改選。偵測在你的瀏覽器裡進行，影像不會上傳。</p>
     </section>
 
     <section class="panel" aria-labelledby="t2">
@@ -126,11 +136,11 @@
       </div>
       <ul class="clips" id="clipList"></ul>
       <div class="row">
-          <button id="exportBtn" class="ghost">匯出詞典</button>
-          <button id="importBtn" class="ghost">匯入詞典</button>
-          <input type="file" id="importFile" accept="application/json" hidden>
-          <button id="uploadBtn" class="ghost">上傳最近錄製影片到 /api/recognize</button>
-          <span id="uploadStatus" style="margin-left:8px"></span>
+        <button id="exportBtn" class="ghost">匯出詞典</button>
+        <button id="importBtn" class="ghost">匯入詞典</button>
+        <button id="uploadBtn" class="ghost">上傳最近錄製影片到 /api/recognize</button>
+        <span id="uploadStatus" role="status"></span>
+        <input type="file" id="importFile" accept="application/json" hidden>
       </div>
     </section>
   </main>

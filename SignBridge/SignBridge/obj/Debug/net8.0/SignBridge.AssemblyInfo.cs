@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignBridge")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2c37f7a104fa4fc02e8e7f75d11a730299418e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignBridge")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignBridge")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
