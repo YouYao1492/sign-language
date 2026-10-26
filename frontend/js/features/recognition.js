@@ -1,4 +1,7 @@
-import { recognizeSign } from "../api/recognizeApi.js";
+import {
+  createRecognitionFormData,
+  recognizeSign,
+} from "../api/recognizeApi.js";
 import { getSession } from "../api/sessionApi.js";
 import { captureCameraVideo } from "./camera.js";
 import { appendChatMessage } from "./chat.js";
@@ -30,15 +33,7 @@ export async function recognizeVideo(video) {
 
   try {
     const session = await verifyActiveSession();
-    if (!(video instanceof Blob) || video.size === 0) {
-      throw new Error("請提供非空的影片檔案進行辨識。");
-    }
-
-    const formData = new FormData();
-    formData.append("video", video, video.name || "sign-language.webm");
-    formData.append("session_id", session.session_id);
-    formData.append("scenario_id", session.scenario_id);
-    formData.append("language", session.language);
+    const formData = createRecognitionFormData(video, session);
 
     resultText.innerText = "正在辨識手語...";
     const responseData = await recognizeSign(formData);
