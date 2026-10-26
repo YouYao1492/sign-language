@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3000";
+import { API_BASE_URL } from "./config.js";
 
 const videoElement = document.getElementById("webcam");
 const canvasElement = document.getElementById("output_canvas");
@@ -289,3 +289,15 @@ window.onload = () => {
     updateUserUI(JSON.parse(savedUser));
   }
 };
+
+Object.assign(window, {
+  toggleLoginModal,
+  simulateAvatarSign,
+  sendQuickText,
+  handleKeyPress,
+  sendTextMessage,
+  switchAuthTab,
+  handleLogin,
+  handleRegister,
+  logout,
+});
