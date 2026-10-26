@@ -7,13 +7,22 @@ import {
   toggleLoginModal,
 } from "./features/auth.js";
 import { simulateAvatarSign } from "./features/avatar.js";
-import { initCamera } from "./features/camera.js";
+import {
+  captureCameraVideo,
+  initCamera,
+  startCamera,
+  stopCamera,
+} from "./features/camera.js";
 import {
   handleKeyPress,
   sendQuickText,
   sendTextMessage,
 } from "./features/chat.js";
-import { recognizeVideo } from "./features/recognition.js";
+import {
+  initRecognition,
+  recognizeFromCamera,
+  recognizeVideo,
+} from "./features/recognition.js";
 import {
   completeSession,
   createSession,
@@ -38,6 +47,11 @@ function initApp() {
   });
 
   window.signBridge = Object.freeze({
+    camera: Object.freeze({
+      start: startCamera,
+      stop: stopCamera,
+      captureVideo: captureCameraVideo,
+    }),
     sessions: Object.freeze({
       create: createSession,
       complete: completeSession,
@@ -46,11 +60,13 @@ function initApp() {
       select: selectSession,
     }),
     recognizeVideo,
+    recognizeFromCamera,
   });
 
   initAuth();
   initSessions();
   initCamera();
+  initRecognition();
   initVoice();
 }
 

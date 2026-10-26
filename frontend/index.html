@@ -62,6 +62,22 @@
             id="output_canvas"
             class="mirror-mode absolute inset-0 w-full h-full object-cover z-10"
           ></canvas>
+          <div class="absolute top-4 left-4 z-30 flex gap-2">
+            <button
+              id="start_camera_btn"
+              type="button"
+              class="bg-slate-800/90 hover:bg-slate-700 px-3 py-2 rounded-lg text-xs font-semibold transition"
+            >
+              開啟攝影機
+            </button>
+            <button
+              id="stop_camera_btn"
+              type="button"
+              class="hidden bg-slate-800/90 hover:bg-slate-700 px-3 py-2 rounded-lg text-xs font-semibold transition"
+            >
+              關閉攝影機
+            </button>
+          </div>
 
           <!-- 3. 🤟 加大版 2D 虛擬手語人 (PIP 畫中畫浮動視窗) -->
           <div
@@ -187,14 +203,23 @@
 
           <!-- 4. 即時辨識字幕區 -->
           <div
-            class="absolute bottom-4 left-4 right-4 z-20 bg-slate-900/80 backdrop-blur-md p-3.5 rounded-xl border border-emerald-500/50"
+            class="absolute bottom-4 left-4 right-4 z-20 bg-slate-900/80 backdrop-blur-md p-3.5 rounded-xl border border-emerald-500/50 flex items-center justify-between gap-3"
           >
-            <div class="text-xs text-emerald-400 font-semibold mb-0.5">
-              AI 即時手語辨識結果：
+            <div class="min-w-0">
+              <div class="text-xs text-emerald-400 font-semibold mb-0.5">
+                AI 即時手語辨識結果：
+              </div>
+              <div id="result_text" class="text-base font-bold text-white">
+                請允許開啟攝影機...
+              </div>
             </div>
-            <div id="result_text" class="text-base font-bold text-white">
-              請允許開啟攝影機...
-            </div>
+            <button
+              id="recognize_btn"
+              type="button"
+              class="shrink-0 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 px-3 py-2 rounded-lg text-xs font-semibold transition"
+            >
+              錄影 3 秒並辨識
+            </button>
           </div>
         </div>
 
