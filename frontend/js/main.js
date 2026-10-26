@@ -18,6 +18,8 @@ import {
   completeSession,
   createSession,
   getActiveSession,
+  getSessions,
+  initSessions,
 } from "./features/sessions.js";
 import { initVoice } from "./features/voice.js";
 
@@ -39,11 +41,13 @@ function initApp() {
       create: createSession,
       complete: completeSession,
       getActive: getActiveSession,
+      list: getSessions,
     }),
     recognizeVideo,
   });
 
   initAuth();
+  initSessions();
   initCamera();
   initVoice();
 }

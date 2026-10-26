@@ -49,6 +49,7 @@ export async function handleLogin(event) {
     alert(`✅ 登入成功！歡迎回來，${user.name}`);
     updateUserUI(user);
     toggleLoginModal(false);
+    window.dispatchEvent(new Event("signbridge:auth-changed"));
   } catch (err) {
     console.error("登入 API 請求失敗:", err);
     errorDiv.innerText = err.message || "登入失敗！";
