@@ -1,4 +1,7 @@
-import { apiRequest } from "../api/apiClient.js";
+import {
+  createSession as createSessionRequest,
+  updateSession,
+} from "../api/sessionApi.js";
 
 const ACTIVE_SESSION_KEY = "activeSession";
 
@@ -11,10 +14,9 @@ export async function createSession(scenarioId, language = "zh-TW") {
   if (!scenarioId?.trim()) throw new Error("scenario_id 不可為空。");
   if (!language?.trim()) throw new Error("language 不可為空。");
 
-  const result = await apiRequest("/api/sessions", {
-    method: "POST",
-    body: { scenario_id: scenarioId, language },
-    auth: true,
+  const result = await createSessionRequest({
+    scenario_id: scenarioId,
+    language,
   });
   if (!result.data?.session_id) {
     throw new Error("建立 Session 成功，但後端未回傳 session_id。");
@@ -27,14 +29,9 @@ export async function completeSession() {
   const session = getActiveSession();
   if (!session) throw new Error("目前沒有進行中的 Session。");
 
-  const result = await apiRequest(
-    `/api/sessions/${encodeURIComponent(session.session_id)}`,
-    {
-      method: "PATCH",
-      body: { status: "completed" },
-      auth: true,
-    },
-  );
+  const result = await updateSession(session.session_id, {
+    status: "completed",
+  });
   localStorage.removeItem(ACTIVE_SESSION_KEY);
   return result.data;
 }
