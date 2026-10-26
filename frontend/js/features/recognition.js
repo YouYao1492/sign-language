@@ -1,4 +1,4 @@
-import { apiRequest } from "../api/apiClient.js";
+import { recognizeSign } from "../api/recognizeApi.js";
 import { appendChatMessage } from "./chat.js";
 import { getActiveSession } from "./sessions.js";
 
@@ -20,11 +20,7 @@ export async function recognizeVideo(video) {
   resultText.innerText = "正在辨識手語...";
 
   try {
-    const responseData = await apiRequest("/api/recognize", {
-      method: "POST",
-      body: formData,
-      auth: true,
-    });
+    const responseData = await recognizeSign(formData);
 
     const recognizedText = responseData.data?.text;
     if (!recognizedText) throw new Error("辨識成功，但後端未回傳文字結果。");
