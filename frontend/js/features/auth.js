@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../config.js";
+import { login, register } from "../api/authApi.js";
 
 export function toggleLoginModal(show) {
   const modal = document.getElementById("login_modal");
@@ -40,11 +40,7 @@ export async function handleLogin(event) {
   submitBtn.innerText = "驗證中...";
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await login({ email, password });
     const responseData = await response.json();
 
     if (response.ok) {
@@ -57,7 +53,10 @@ export async function handleLogin(event) {
       toggleLoginModal(false);
     } else {
       errorDiv.innerText =
-        responseData.message || responseData.detail || "登入失敗！";
+        responseData.message ||
+        responseData.detail ||
+        responseData.error?.message ||
+        "登入失敗！";
       errorDiv.classList.remove("hidden");
     }
   } catch (err) {
@@ -81,11 +80,7 @@ export async function handleRegister(event) {
   submitBtn.innerText = "註冊資料發送中...";
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/register`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, password }),
-    });
+    const response = await register({ name, email, password });
     const responseData = await response.json();
 
     if (response.ok) {
@@ -95,7 +90,10 @@ export async function handleRegister(event) {
       switchAuthTab("login");
     } else {
       msgDiv.innerText =
-        responseData.message || responseData.detail || "註冊失敗！";
+        responseData.message ||
+        responseData.detail ||
+        responseData.error?.message ||
+        "註冊失敗！";
       msgDiv.className = "text-xs text-center text-red-400";
     }
   } catch (err) {
