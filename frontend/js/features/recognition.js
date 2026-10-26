@@ -9,6 +9,7 @@ export async function recognizeVideo(video) {
 
   const session = getActiveSession();
   if (!session) throw new Error("請先建立 Session 再開始辨識。");
+  const sessionId = session.session_id;
 
   const formData = new FormData();
   formData.append("video", video, video.name || "sign-language.webm");
@@ -25,11 +26,15 @@ export async function recognizeVideo(video) {
     const recognizedText = responseData.data?.text;
     if (!recognizedText) throw new Error("辨識成功，但後端未回傳文字結果。");
 
+    if (getActiveSession()?.session_id !== sessionId) return recognizedText;
+
     resultText.innerText = recognizedText;
     appendChatMessage("聽障使用者 (手語辨識)", recognizedText, false);
     return recognizedText;
   } catch (error) {
-    resultText.innerText = error.message || "辨識失敗，請稍後再試。";
+    if (getActiveSession()?.session_id === sessionId) {
+      resultText.innerText = error.message || "辨識失敗，請稍後再試。";
+    }
     throw error;
   }
 }

@@ -1,5 +1,9 @@
 import { simulateAvatarSign } from "./avatar.js";
 
+export function clearChatHistory() {
+  document.getElementById("chat_box").replaceChildren();
+}
+
 export function appendChatMessage(sender, text, isUser) {
   const chatBox = document.getElementById("chat_box");
   const msgDiv = document.createElement("div");

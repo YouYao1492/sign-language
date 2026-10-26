@@ -1,8 +1,10 @@
 import { appendChatMessage } from "./chat.js";
 import { simulateAvatarSign } from "./avatar.js";
+import { getActiveSession } from "./sessions.js";
 
 let recognition = null;
 let isListening = false;
+let listeningSessionId = null;
 
 function stopListeningUI() {
   isListening = false;
@@ -22,6 +24,7 @@ function startListening() {
 
   try {
     isListening = true;
+    listeningSessionId = getActiveSession()?.session_id ?? null;
     recognition.start();
     document.getElementById("talk_btn").className =
       "w-full bg-red-600 py-3 rounded-xl font-semibold text-sm transition flex items-center justify-center gap-2 select-none shadow-lg animate-pulse";
@@ -51,6 +54,8 @@ export function initVoice() {
     recognition.lang = "zh-TW";
 
     recognition.onresult = (event) => {
+      if (getActiveSession()?.session_id !== listeningSessionId) return;
+
       const transcript = event.results[0][0].transcript;
       document.getElementById("voice_input").value = transcript;
       appendChatMessage("醫護人員 (語音)", transcript, true);

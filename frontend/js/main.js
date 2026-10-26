@@ -20,6 +20,7 @@ import {
   getActiveSession,
   getSessions,
   initSessions,
+  selectSession,
 } from "./features/sessions.js";
 import { initVoice } from "./features/voice.js";
 
@@ -42,6 +43,7 @@ function initApp() {
       complete: completeSession,
       getActive: getActiveSession,
       list: getSessions,
+      select: selectSession,
     }),
     recognizeVideo,
   });
