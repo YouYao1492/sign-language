@@ -235,13 +235,22 @@
                 class="text-[10px] text-slate-500 mt-1 truncate"
               ></p>
             </div>
-            <button
-              id="start_session_btn"
-              type="button"
-              class="shrink-0 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 px-3 py-2 rounded-lg text-xs font-semibold transition"
-            >
-              開始服務
-            </button>
+            <div class="flex shrink-0 flex-col gap-1">
+              <button
+                id="start_session_btn"
+                type="button"
+                class="bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 px-3 py-2 rounded-lg text-xs font-semibold transition"
+              >
+                開始服務
+              </button>
+              <button
+                id="end_session_btn"
+                type="button"
+                class="hidden bg-red-700 hover:bg-red-600 disabled:opacity-50 px-3 py-2 rounded-lg text-xs font-semibold transition"
+              >
+                結束服務
+              </button>
+            </div>
           </div>
           <div class="flex items-center justify-between mt-3 mb-1">
             <p class="text-[10px] text-slate-400">我的 Session</p>

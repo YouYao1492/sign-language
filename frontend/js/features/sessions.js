@@ -74,10 +74,19 @@ export async function completeSession() {
   const session = getActiveSession();
   if (!session) throw new Error("目前沒有進行中的 Session。");
 
+  const requestId = ++sessionSelectionRequestId;
   const result = await updateSession(session.session_id, {
     status: "completed",
   });
-  localStorage.removeItem(ACTIVE_SESSION_KEY);
+  if (
+    requestId === sessionSelectionRequestId &&
+    getActiveSession()?.session_id === session.session_id
+  ) {
+    localStorage.removeItem(ACTIVE_SESSION_KEY);
+    clearChatHistory();
+    document.getElementById("result_text").innerText =
+      "服務已結束，請開始或選擇其他 Session。";
+  }
   renderActiveSession();
   return result.data;
 }
@@ -111,23 +120,27 @@ function renderActiveSession() {
   const session = getActiveSession();
   const status = document.getElementById("active_session_status");
   const sessionId = document.getElementById("active_session_id");
+  const endButton = document.getElementById("end_session_btn");
 
   if (!session) {
     status.innerText = "尚未開始服務";
     sessionId.innerText = "";
+    endButton?.classList.add("hidden");
     return;
   }
 
   status.innerText = `進行中 · ${session.scenario_id}`;
   sessionId.innerText = `Session ID: ${session.session_id}`;
+  endButton?.classList.remove("hidden");
 }
 
 export async function initSessions() {
   const startButton = document.getElementById("start_session_btn");
+  const endButton = document.getElementById("end_session_btn");
   const refreshButton = document.getElementById("refresh_sessions_btn");
   const errorMessage = document.getElementById("session_error");
   const sessionList = document.getElementById("session_list");
-  if (!startButton || !refreshButton || !sessionList) return;
+  if (!startButton || !endButton || !refreshButton || !sessionList) return;
 
   const showError = (error) => {
     errorMessage.innerText = error.message || "Session 操作失敗。";
@@ -200,6 +213,20 @@ export async function initSessions() {
       errorMessage.classList.remove("hidden");
     } finally {
       startButton.disabled = false;
+    }
+  });
+
+  endButton.addEventListener("click", async () => {
+    endButton.disabled = true;
+    errorMessage.classList.add("hidden");
+    try {
+      await completeSession();
+      renderSessionList(loadedSessions, handleSelectSession);
+      await loadSessions();
+    } catch (error) {
+      showError(error);
+    } finally {
+      endButton.disabled = false;
     }
   });
 
