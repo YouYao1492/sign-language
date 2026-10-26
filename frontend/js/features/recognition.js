@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../config.js";
+import { apiRequest } from "../api/apiClient.js";
 import { appendChatMessage } from "./chat.js";
 import { getActiveSession } from "./sessions.js";
 
@@ -10,9 +10,6 @@ export async function recognizeVideo(video) {
   const session = getActiveSession();
   if (!session) throw new Error("請先建立 Session 再開始辨識。");
 
-  const token = localStorage.getItem("userToken");
-  if (!token) throw new Error("請先登入再開始辨識。");
-
   const formData = new FormData();
   formData.append("video", video, video.name || "sign-language.webm");
   formData.append("session_id", session.session_id);
@@ -23,22 +20,11 @@ export async function recognizeVideo(video) {
   resultText.innerText = "正在辨識手語...";
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/recognize`, {
+    const responseData = await apiRequest("/api/recognize", {
       method: "POST",
-      headers: { Authorization: `Bearer ${token}` },
       body: formData,
+      auth: true,
     });
-    const responseData = await response.json();
-
-    if (!response.ok) {
-      throw new Error(
-        responseData.detail ||
-          responseData.message ||
-          responseData.error?.message ||
-          responseData.error ||
-          "手語辨識失敗。",
-      );
-    }
 
     const recognizedText = responseData.data?.text;
     if (!recognizedText) throw new Error("辨識成功，但後端未回傳文字結果。");
@@ -47,7 +33,7 @@ export async function recognizeVideo(video) {
     appendChatMessage("聽障使用者 (手語辨識)", recognizedText, false);
     return recognizedText;
   } catch (error) {
-    resultText.innerText = "辨識失敗，請稍後再試。";
+    resultText.innerText = error.message || "辨識失敗，請稍後再試。";
     throw error;
   }
 }

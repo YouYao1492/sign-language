@@ -40,28 +40,18 @@ export async function handleLogin(event) {
   submitBtn.innerText = "驗證中...";
 
   try {
-    const response = await login({ email, password });
-    const responseData = await response.json();
+    const responseData = await login({ email, password });
 
-    if (response.ok) {
-      const user = responseData.data;
-      localStorage.setItem("userToken", user.token);
-      localStorage.setItem("userInfo", JSON.stringify(user));
+    const user = responseData.data;
+    localStorage.setItem("userToken", user.token);
+    localStorage.setItem("userInfo", JSON.stringify(user));
 
-      alert(`✅ 登入成功！歡迎回來，${user.name}`);
-      updateUserUI(user);
-      toggleLoginModal(false);
-    } else {
-      errorDiv.innerText =
-        responseData.message ||
-        responseData.detail ||
-        responseData.error?.message ||
-        "登入失敗！";
-      errorDiv.classList.remove("hidden");
-    }
+    alert(`✅ 登入成功！歡迎回來，${user.name}`);
+    updateUserUI(user);
+    toggleLoginModal(false);
   } catch (err) {
-    console.error("無法連線至後端 API:", err);
-    errorDiv.innerText = "無法連接至 .NET 後端伺服器，請確認後端已啟動。";
+    console.error("登入 API 請求失敗:", err);
+    errorDiv.innerText = err.message || "登入失敗！";
     errorDiv.classList.remove("hidden");
   } finally {
     submitBtn.innerText = "立即登入";
@@ -80,25 +70,15 @@ export async function handleRegister(event) {
   submitBtn.innerText = "註冊資料發送中...";
 
   try {
-    const response = await register({ name, email, password });
-    const responseData = await response.json();
+    await register({ name, email, password });
 
-    if (response.ok) {
-      alert("🎉 註冊成功！請使用新帳號登入。");
-      document.getElementById("login_email").value = email;
-      document.getElementById("login_password").value = password;
-      switchAuthTab("login");
-    } else {
-      msgDiv.innerText =
-        responseData.message ||
-        responseData.detail ||
-        responseData.error?.message ||
-        "註冊失敗！";
-      msgDiv.className = "text-xs text-center text-red-400";
-    }
+    alert("🎉 註冊成功！請使用新帳號登入。");
+    document.getElementById("login_email").value = email;
+    document.getElementById("login_password").value = password;
+    switchAuthTab("login");
   } catch (err) {
-    console.error("無法連線至後端 API:", err);
-    msgDiv.innerText = "無法連接至 .NET 後端伺服器，請確認後端已啟動。";
+    console.error("註冊 API 請求失敗:", err);
+    msgDiv.innerText = err.message || "註冊失敗！";
     msgDiv.className = "text-xs text-center text-red-400";
   } finally {
     submitBtn.innerText = "註冊並發送至 .NET 後端";
