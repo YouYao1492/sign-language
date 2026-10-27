@@ -22,27 +22,20 @@ Live Server 的連接埠可能依本機設定而不同。
 
 開啟另一個終端機，進入後端目錄：
 
+```
 cd backend
+```
 
 使用 Python 3.14 建立虛擬環境：
 
 Windows
-
+```
 py -3.14 -m venv .venv
-
+```
 啟用虛擬環境：
-
-.venv\Scripts\Activate.ps1
-
-如果使用 Command Prompt（CMD），則執行：
-
+```
 .venv\Scripts\activate.bat
-
-macOS / Linux
-
-python3.14 -m venv .venv
-source .venv/bin/activate
-
+```
 啟用成功後，終端機通常會在提示字元前顯示 (.venv)。
 
 ### 安裝後端套件
@@ -50,13 +43,13 @@ source .venv/bin/activate
 確認目前位於 backend 目錄，並已啟用虛擬環境。
 
 先更新 pip：
-
+```
 python -m pip install --upgrade pip
-
+```
 安裝專案所需套件：
-
+```
 python -m pip install -r requirements.txt
-
+```
 ### 設定環境變數
 
 確認 backend 目錄中的環境設定檔已正確設定。
@@ -68,9 +61,9 @@ python -m pip install -r requirements.txt
 確認目前位於 backend 目錄，並且虛擬環境已啟用。
 
 執行：
-
+```
 python -m uvicorn app.main:app --reload --port 3000
-
+```
 成功啟動後，後端 API 位址為：
 
 http://127.0.0.1:3000
