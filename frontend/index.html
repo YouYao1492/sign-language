@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>守護無聲世界 - SignBridge AI</title>
+    <!-- 載入 Tailwind CSS 快速切版 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="bg-slate-900 text-white font-sans h-screen flex flex-col relative overflow-hidden"
+  >
+    <!-- 1. 🏠 精緻版首頁區塊 (預設顯示) -->
+    <div
+      id="home_page"
+      class="absolute inset-0 z-40 bg-slate-900 flex flex-col items-center justify-between p-6 md:p-10 overflow-y-auto"
+    >
+      <!-- 背景光暈裝飾 -->
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <!-- 首頁 Header LOGO -->
+      <header class="w-full max-w-6xl flex justify-between items-center z-10">
+        <div class="flex items-center gap-2 text-emerald-400 text-xl font-bold">
+          <span>🤟</span> SignBridge AI
+        </div>
+        <span class="text-xs text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">
+          ● 智慧無障礙公務系統
+        </span>
+      </header>
+
+      <!-- 首頁 Hero 主視覺與介紹 -->
+      <main class="max-w-4xl z-10 flex flex-col items-center gap-6 my-auto py-8 text-center">
+        <!-- 主標題與副標題 -->
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          守護無聲世界
+          <span class="block text-emerald-400 mt-2 text-3xl md:text-5xl font-bold">
+            雙向即時手語翻譯與溝通平台
+          </span>
+        </h1>
+
+        <p class="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
+          基於 Computer Vision 手勢識別與 2D 虛擬手語翻譯人技術，打破聽障人士與臨櫃人員的溝通壁壘，打造完全無障礙的公共服務體驗。
+        </p>
+
+        <!-- 行動呼籲按鈕 (CTA) -->
+        <div class="flex items-center gap-4 mt-2">
+          <button
+            onclick="enterApp()"
+            class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-lg px-8 py-3.5 rounded-2xl shadow-xl hover:shadow-emerald-500/25 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+          >
+            <span>開始使用服務</span>
+            <span class="text-xl">➔</span>
+          </button>
+        </div>
+
+        <!-- 三大特色卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-8 text-left">
+          <!-- 卡片 1 -->
+          <div class="bg-slate-800/80 border border-slate-700/80 p-5 rounded-2xl backdrop-blur-sm hover:border-emerald-500/50 transition">
+            <div class="text-2xl mb-2">📹</div>
+            <h3 class="text-base font-bold text-emerald-400 mb-1">即時手語鏡頭辨識</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              透過鏡頭捕捉手勢姿態點，AI 模型快速辨識手語意思並轉寫為文字訊息。
+            </p>
+          </div>
+          <!-- 卡片 2 -->
+          <div class="bg-slate-800/80 border border-slate-700/80 p-5 rounded-2xl backdrop-blur-sm hover:border-emerald-500/50 transition">
+            <div class="text-2xl mb-2">🤖</div>
+            <h3 class="text-base font-bold text-emerald-400 mb-1">2D 虛擬手語翻譯人</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              將聽人的語音或文字即時轉化為 2D 虛擬人物手語動作，直觀傳達意圖。
+            </p>
+          </div>
+          <!-- 卡片 3 -->
+          <div class="bg-slate-800/80 border border-slate-700/80 p-5 rounded-2xl backdrop-blur-sm hover:border-emerald-500/50 transition">
+            <div class="text-2xl mb-2">🏥</div>
+            <h3 class="text-base font-bold text-emerald-400 mb-1">多情境服務切換</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              專為醫療診間、政府臨櫃與餐飲服務打造，靈活適應各種日常溝通需求。
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <!-- 首頁 Footer -->
+      <footer class="w-full max-w-6xl text-center text-xs text-slate-500 z-10 py-2 border-t border-slate-800/80">
+        © 2026 守護無聲世界 SignBridge AI. All rights reserved.
+      </footer>
+    </div>
+
+    <!-- 2. 頂部導覽列 (進入服務後顯示) -->
+    <header
+      id="app_header"
+      class="hidden bg-slate-800 p-4 border-b border-slate-700 flex justify-between items-center z-10 shrink-0"
+    >
+      <div class="flex items-center gap-3">
+        <!-- 點擊標題可以回到首頁 -->
+        <h1
+          onclick="goHome()"
+          class="text-xl font-bold text-emerald-400 flex items-center gap-2 cursor-pointer hover:opacity-80 transition"
+        >
+          🤟 守護無聲世界 (SignBridge AI)
+        </h1>
+        <!-- 新增的按鈕 -->
+        <button
+          id="custom_btn"
+          type="button"
+          class="bg-slate-700 hover:bg-slate-600 text-slate-200 border border-slate-600 px-3 py-1 rounded-lg text-sm font-medium transition shadow"
+        >
+          按鈕
+        </button>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <select
+          id="scenario_select"
+          class="bg-slate-700 text-sm px-3 py-1.5 rounded-lg border border-slate-600"
+        >
+          <option value="medical">🏥 醫院診間模式</option>
+          <option value="bank">🏛️ 政府臨櫃模式</option>
+          <option value="restaurant">🍔 餐廳點餐模式</option>
+        </select>
+        <span class="text-xs text-emerald-400">● 系統運作中</span>
+
+        <!-- 💬 歷史對話紀錄按鈕 -->
+        <button
+          onclick="toggleChatModal(true)"
+          class="bg-slate-700 hover:bg-slate-600 text-emerald-400 border border-slate-600 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition flex items-center gap-1.5 shadow"
+        >
+          💬 歷史對話紀錄
+        </button>
+
+        <!-- 登入狀態顯示 / 登入按鈕 -->
+        <div id="user_profile_area">
+          <button
+            onclick="toggleLoginModal(true)"
+            class="bg-emerald-500 hover:bg-emerald-600 px-4 py-1.5 rounded-lg text-sm font-semibold transition"
+          >
+            🔐 會員登入 / 註冊
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3. 手語翻譯主畫面區域 (進入服務後顯示) -->
+    <main id="app_main" class="hidden flex-1 flex gap-4 p-4 overflow-hidden min-h-0">
+      <!-- 1. 左半邊 (50%)：WebCam 視訊 + 手語辨識區域 -->
+      <section
+        class="w-1/2 bg-black rounded-2xl overflow-hidden border-2 border-slate-700 flex flex-col relative min-h-0 shadow-2xl"
+      >
+        <div class="relative flex-1 min-h-0">
+          <!-- WebCam 視訊串流 -->
+          <video
+            id="webcam"
+            class="mirror-mode absolute inset-0 w-full h-full object-cover"
+            autoplay
+            playsinline
+          ></video>
+          <!-- Canvas 骨骼繪製層 -->
+          <canvas
+            id="output_canvas"
+            class="mirror-mode absolute inset-0 w-full h-full object-cover z-10"
+          ></canvas>
+
+          <!-- 相機控制按鈕 -->
+          <div class="absolute top-4 left-4 z-30 flex gap-2">
+            <button
+              id="start_camera_btn"
+              type="button"
+              class="bg-slate-800/90 hover:bg-slate-700 text-white px-3.5 py-2 rounded-lg text-xs font-semibold border border-slate-600 transition shadow"
+            >
+              開啟攝影機
+            </button>
+            <button
+              id="stop_camera_btn"
+              type="button"
+              class="hidden bg-slate-800/90 hover:bg-slate-700 text-white px-3.5 py-2 rounded-lg text-xs font-semibold border border-slate-600 transition shadow"
+            >
+              關閉攝影機
+            </button>
+          </div>
+        </div>
+
+        <!-- 藍色標註區域：AI 手語辨識結果與錄影按鈕 -->
+        <div
+          class="p-4 bg-slate-800/95 border-t border-slate-700 flex items-center justify-between gap-4 z-20 shrink-0"
+        >
+          <div class="min-w-0 flex-1">
+            <div class="text-xs text-emerald-400 font-semibold mb-1">
+              AI 即時手語辨識結果：
+            </div>
+            <div id="result_text" class="text-base font-bold text-white truncate">
+              等待手勢輸入中...
+            </div>
+          </div>
+          <button
+            id="recognize_btn"
+            type="button"
+            class="shrink-0 bg-emerald-600 hover:bg-emerald-500 text-white disabled:opacity-50 px-4 py-2.5 rounded-xl text-xs font-semibold transition shadow"
+          >
+            錄影 3 秒並辨識
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. 右半邊 (50%)：2D 虛擬人 + 輸入與語音區域 -->
+      <section
+        id="avatar_box"
+        class="w-1/2 bg-slate-800/90 rounded-2xl border-2 border-emerald-500 shadow-2xl flex flex-col justify-between p-4 min-h-0 gap-3"
+      >
+        <!-- 標題欄 -->
+        <div
+          class="flex justify-between items-center text-sm text-emerald-400 font-bold border-b border-slate-700 pb-2 shrink-0"
+        >
+          <span class="flex items-center gap-2 text-base">🤟 2D 虛擬手語翻譯人</span>
+          <span
+            class="text-xs bg-emerald-500/20 px-2.5 py-0.5 rounded-full text-emerald-300 border border-emerald-500/30 font-mono"
+            >Live 2D</span
+          >
+        </div>
+
+        <!-- 2D 虛擬人物 SVG 畫布 -->
+        <div
+          class="flex-1 flex items-center justify-center relative overflow-hidden bg-slate-900/60 rounded-xl border border-slate-700/50 p-2 min-h-0"
+        >
+          <svg
+            id="avatar_svg"
+            class="w-full h-full max-h-[400px]"
+            viewBox="0 0 200 240"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- 人物光暈背景 -->
+            <circle
+              cx="100"
+              cy="100"
+              r="70"
+              fill="#10B981"
+              fill-opacity="0.15"
+              class="animate-pulse"
+            />
+
+            <!-- 身體 / 衣著 -->
+            <path
+              d="M50 210 C50 165, 70 150, 100 150 C130 150, 150 165, 150 210 Z"
+              fill="#047857"
+            />
+            <path d="M85 150 L100 185 L115 150 Z" fill="#10B981" />
+
+            <!-- 脖子 -->
+            <rect
+              x="92"
+              y="132"
+              width="16"
+              height="20"
+              rx="4"
+              fill="#F3D0B7"
+            />
+
+            <!-- 左手臂 & 手掌 -->
+            <g id="left_arm">
+              <path
+                d="M55 160 C35 180, 40 200, 30 205"
+                stroke="#047857"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <circle cx="26" cy="207" r="9" fill="#F3D0B7" />
+            </g>
+
+            <!-- 右手臂 & 手掌 -->
+            <g id="right_arm">
+              <path
+                d="M145 160 C165 180, 160 200, 170 205"
+                stroke="#047857"
+                stroke-width="14"
+                stroke-linecap="round"
+              />
+              <circle cx="174" cy="207" r="9" fill="#F3D0B7" />
+            </g>
+
+            <!-- 頭部與臉部 -->
+            <circle cx="100" cy="95" r="40" fill="#F3D0B7" />
+
+            <!-- 頭髮 -->
+            <path
+              d="M60 92 C60 55, 140 55, 140 92 C140 68, 60 68, 60 92 Z"
+              fill="#1F2937"
+            />
+
+            <!-- 眼睛 -->
+            <circle cx="87" cy="92" r="4" fill="#111827" />
+            <circle cx="113" cy="92" r="4" fill="#111827" />
+            <circle cx="88" cy="90" r="1.5" fill="white" />
+            <circle cx="114" cy="90" r="1.5" fill="white" />
+
+            <!-- 微笑嘴巴 -->
+            <path
+              d="M92 112 Q100 120 108 112"
+              stroke="#D97706"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              fill="none"
+            />
+
+            <!-- 耳朵 -->
+            <circle cx="59" cy="95" r="6" fill="#E5B596" />
+            <circle cx="141" cy="95" r="6" fill="#E5B596" />
+          </svg>
+        </div>
+
+        <!-- 聽人語音 / 文字輸入區域 -->
+        <div class="flex flex-col gap-2 shrink-0 bg-slate-900/70 p-3 rounded-xl border border-slate-700/80">
+          <!-- 文字輸入框與發送按鈕 -->
+          <div class="flex gap-2">
+            <input
+              type="text"
+              id="voice_input"
+              placeholder="請說話或輸入文字..."
+              class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3.5 text-sm focus:outline-none focus:border-emerald-500"
+              onkeypress="handleKeyPress(event)"
+            />
+            <button
+              onclick="sendTextMessage()"
+              class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl font-semibold text-xs transition shadow shrink-0"
+            >
+              發送
+            </button>
+          </div>
+
+          <!-- 按住說話按鈕 -->
+          <button
+            id="talk_btn"
+            class="w-full bg-emerald-500 hover:bg-emerald-600 active:bg-red-500 py-2.5 rounded-xl font-semibold text-sm transition flex items-center justify-center gap-2 select-none touch-none shadow"
+          >
+            <span id="talk_icon">🎙️</span>
+            <span id="talk_text">按住說話</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- 💬 歷史對話紀錄與 Session 管理彈窗 (Modal) -->
+    <div
+      id="chat_modal"
+      class="hidden absolute inset-0 bg-black/75 backdrop-blur-sm z-50 flex justify-end"
+    >
+      <div
+        class="bg-slate-800 border-l border-slate-700 w-full max-w-lg h-full p-6 flex flex-col gap-4 shadow-2xl relative"
+      >
+        <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+          <h2 class="text-lg font-bold text-emerald-400 flex items-center gap-2">
+            💬 歷史對話紀錄與服務管理
+          </h2>
+          <button
+            onclick="toggleChatModal(false)"
+            class="text-slate-400 hover:text-white text-xl p-1"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- Session 狀態管理區 -->
+        <div class="bg-slate-900/60 p-3 rounded-2xl border border-slate-700/80">
+          <div class="flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <p class="text-xs font-semibold text-slate-300">目前服務 Session</p>
+              <p id="active_session_status" class="text-xs text-slate-400 mt-1">
+                請先登入以開始服務
+              </p>
+              <p
+                id="active_session_id"
+                class="text-[10px] text-slate-500 mt-1 truncate"
+              ></p>
+            </div>
+            <div class="flex shrink-0 flex-col gap-1">
+              <button
+                id="start_session_btn"
+                type="button"
+                class="bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 px-3 py-2 rounded-lg text-xs font-semibold transition"
+              >
+                開始服務
+              </button>
+              <button
+                id="end_session_btn"
+                type="button"
+                class="hidden bg-red-700 hover:bg-red-600 disabled:opacity-50 px-3 py-2 rounded-lg text-xs font-semibold transition"
+              >
+                結束服務
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between mt-3 mb-1">
+            <p class="text-[10px] text-slate-400">我的 Session</p>
+            <button
+              id="refresh_sessions_btn"
+              type="button"
+              class="text-[10px] text-emerald-400 hover:text-emerald-300"
+            >
+              重新整理
+            </button>
+          </div>
+          <p id="session_error" class="hidden text-xs text-red-400 mb-2"></p>
+          <ul
+            id="session_list"
+            class="max-h-24 overflow-y-auto flex flex-col gap-1 text-[10px] text-slate-400"
+          >
+            <li>登入後載入 Session 清單。</li>
+          </ul>
+        </div>
+
+        <!-- 對話歷程區 -->
+        <div
+          id="chat_box"
+          class="flex-1 bg-slate-900/40 p-4 rounded-2xl border border-slate-700/80 overflow-y-auto flex flex-col gap-3 min-h-0"
+        >
+          <div
+            class="self-start bg-slate-700/80 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-sm shadow"
+          >
+            <span class="block text-[10px] text-slate-400 mb-1"
+              >聽障使用者 (手語輸入)</span
+            >
+            請問診間在哪裡？
+          </div>
+          <div
+            class="self-end bg-emerald-600 p-3 rounded-2xl rounded-tr-none max-w-[85%] text-sm shadow"
+          >
+            <span class="block text-[10px] text-emerald-200 mb-1"
+              >醫護人員 (語音/文字輸入)</span
+            >
+            請直走到底右轉，搭電梯上二樓 201 診間。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔐 會員登入 / 註冊 彈窗 (Modal) -->
+    <div
+      id="login_modal"
+      class="hidden absolute inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-slate-800 border border-slate-700 w-full max-w-md p-6 rounded-2xl shadow-2xl relative"
+      >
+        <button
+          onclick="toggleLoginModal(false)"
+          class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg"
+        >
+          ✕
+        </button>
+
+        <!-- 頁籤選擇 -->
+        <div class="flex border-b border-slate-700 mb-6">
+          <button
+            id="tab_login"
+            onclick="switchAuthTab('login')"
+            class="flex-1 pb-3 text-center border-b-2 border-emerald-500 text-emerald-400 font-bold text-sm"
+          >
+            帳號登入
+          </button>
+          <button
+            id="tab_register"
+            onclick="switchAuthTab('register')"
+            class="flex-1 pb-3 text-center text-slate-400 font-bold text-sm"
+          >
+            建立新帳號
+          </button>
+        </div>
+
+        <!-- 登入表單 -->
+        <form
+          id="login_form"
+          class="flex flex-col gap-4"
+          onsubmit="handleLogin(event)"
+        >
+          <div>
+            <label class="block text-xs text-slate-400 mb-1"
+              >帳號 (Email)</label
+            >
+            <input
+              type="email"
+              id="login_email"
+              required
+              value="test@example.com"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-500"
+            />
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">密碼</label>
+            <input
+              type="password"
+              id="login_password"
+              required
+              value="123456"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-500"
+            />
+          </div>
+          <div
+            id="login_error"
+            class="hidden text-xs text-red-400 text-center"
+          ></div>
+          <button
+            type="submit"
+            id="login_btn"
+            class="bg-emerald-500 hover:bg-emerald-600 py-3 rounded-xl font-semibold text-sm mt-2 transition"
+          >
+            立即登入
+          </button>
+        </form>
+
+        <!-- 註冊表單 -->
+        <form
+          id="register_form"
+          class="hidden flex flex-col gap-4"
+          onsubmit="handleRegister(event)"
+        >
+          <div>
+            <label class="block text-xs text-slate-400 mb-1"
+              >顯示姓名 / 暱稱</label
+            >
+            <input
+              type="text"
+              id="reg_name"
+              required
+              placeholder="例如：蕭小明"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-500"
+            />
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-1"
+              >電子信箱 (Email)</label
+            >
+            <input
+              type="email"
+              id="reg_email"
+              required
+              placeholder="example@mail.com"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-500"
+            />
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">設定密碼</label>
+            <input
+              type="password"
+              id="reg_password"
+              required
+              placeholder="••••••••"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-500"
+            />
+          </div>
+          <div id="register_msg" class="hidden text-xs text-center"></div>
+          <button
+            type="submit"
+            id="register_btn"
+            class="bg-emerald-500 hover:bg-emerald-600 py-3 rounded-xl font-semibold text-sm mt-2 transition"
+          >
+            註冊並發送至 .NET 後端
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 腳本區域：首頁切換與語音處理 -->
+    <script>
+      function enterApp() {
+        document.getElementById('home_page').classList.add('hidden');
+        document.getElementById('app_header').classList.remove('hidden');
+        document.getElementById('app_main').classList.remove('hidden');
+      }
+
+      function goHome() {
+        document.getElementById('home_page').classList.remove('hidden');
+        document.getElementById('app_header').classList.add('hidden');
+        document.getElementById('app_main').classList.add('hidden');
+      }
+
+      function toggleChatModal(show) {
+        const modal = document.getElementById('chat_modal');
+        if (modal) {
+          if (show) modal.classList.remove('hidden');
+          else modal.classList.add('hidden');
+        }
+      }
+
+      // 語音辨識處理
+      document.addEventListener('DOMContentLoaded', () => {
+        const talkBtn = document.getElementById('talk_btn');
+        const talkText = document.getElementById('talk_text');
+        const voiceInput = document.getElementById('voice_input');
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (!SpeechRecognition) {
+          if (talkText) talkText.innerText = "瀏覽器不支援語音辨識 (請用 Chrome)";
+          return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'zh-TW';
+        recognition.continuous = false;
+        recognition.interimResults = true;
+
+        recognition.onstart = () => {
+          if (talkText) talkText.innerText = "聆聽中...請說話";
+          if (talkBtn) {
+            talkBtn.classList.remove('bg-emerald-500', 'hover:bg-emerald-600');
+            talkBtn.classList.add('bg-red-600', 'hover:bg-red-500');
+          }
+        };
+
+        recognition.onresult = (event) => {
+          let transcript = '';
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            transcript += event.results[i][0].transcript;
+          }
+          if (voiceInput) voiceInput.value = transcript;
+        };
+
+        recognition.onerror = (event) => {
+          console.error("語音辨識錯誤：", event.error);
+          stopListening();
+        };
+
+        recognition.onend = () => {
+          stopListening();
+        };
+
+        function startListening() {
+          try {
+            recognition.start();
+          } catch (e) {}
+        }
+
+        function stopListening() {
+          if (talkText) talkText.innerText = "按住說話";
+          if (talkBtn) {
+            talkBtn.classList.remove('bg-red-600', 'hover:bg-red-500');
+            talkBtn.classList.add('bg-emerald-500', 'hover:bg-emerald-600');
+          }
+          try {
+            recognition.stop();
+          } catch (e) {}
+        }
+
+        if (talkBtn) {
+          talkBtn.addEventListener('mousedown', startListening);
+          talkBtn.addEventListener('mouseup', stopListening);
+          talkBtn.addEventListener('touchstart', (e) => { e.preventDefault(); startListening(); });
+          talkBtn.addEventListener('touchend', (e) => { e.preventDefault(); stopListening(); });
+        }
+      });
+    </script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
